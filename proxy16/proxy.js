@@ -850,6 +850,7 @@ var Proxy = function (settings, manage, test, logger, reverseproxy) {
 					{
 						host : 'peertube17.pocketnet.app',
 						ip: '51.250.104.218',
+						cantuploading: true,
 					}
 				],
 
@@ -857,6 +858,7 @@ var Proxy = function (settings, manage, test, logger, reverseproxy) {
 					{
 						host : 'peertube18.pocketnet.app',
 						ip: '51.250.41.252',
+						cantuploading: true,
 					}
 				],
 
@@ -864,6 +866,7 @@ var Proxy = function (settings, manage, test, logger, reverseproxy) {
 					{
 						host : 'peertube19.pocketnet.app',
 						ip: '51.250.73.97',
+						cantuploading: true,
 					}
 				],
 
@@ -887,7 +890,6 @@ var Proxy = function (settings, manage, test, logger, reverseproxy) {
 					{
 						host : 'peertube19mirror.pocketnet.app',
 						ip: '64.235.50.17',
-						cantuploading: true,
 					}
 				],
 
