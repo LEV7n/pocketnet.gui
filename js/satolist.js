@@ -27536,7 +27536,7 @@ Platform = function (app, listofnodes) {
 
         })
 
-        setTimeout(() => {
+        /*setTimeout(() => {
             app.user.isState(function(state){
 
                 if(app.nav.current.href == 'index'){
@@ -27563,7 +27563,7 @@ Platform = function (app, listofnodes) {
                 }
 
             })
-        }, 30000)
+        }, 30000)*/
 
     }
 
