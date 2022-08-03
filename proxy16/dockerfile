@@ -8,7 +8,7 @@ EXPOSE 8899 8099
 
 # Monospace font
 RUN mkdir -p /usr/src/app/.fonts/truetype
-RUN find /fonts/ -name "*.ttf" -exec install -m644 {} /usr/src/app/.fonts/truetype/ \; || return 1
+RUN find fonts/ -name "*.ttf" -exec install -m644 {} /usr/src/app/.fonts/truetype/ \; || return 1
 
 WORKDIR /usr/src/app
 COPY package*.json ./
