@@ -1,0 +1,54 @@
+<!--Personal info-->
+<div class="authorabout pane">
+  <!--Heading-->
+  <strong class="item heading"><%= e('uuserinfo') %></strong>
+
+  <!--Description-->
+  <% if(deep(author, 'data.about')) {
+    var description = deep(author, 'data.about');
+  %>
+    <p class="item description">
+      <%= filterXSS(clearScripts((findAndReplaceLink(description, true)))) %>
+    </p>
+  <% } %>
+
+  <!--Link-->
+  <% if(deep(author, 'data.site')) { %>
+  <div class="item table">
+    <div class="label">
+      <i class="fas fa-link"></i>
+      <a elementsid="<%-deep(author, 'data.site')%>" href="<% -deep(author, 'data.site') %>">
+        <%- filterXSS(deep(author, 'data.site').replace(/.+:\/\//, '')) %>
+      </a>
+    </div>
+  </div>
+  <% } %>
+
+  <!--Registered date-->
+  <%
+  var _d = deep(author, 'data.regdate');
+
+  if(_d) {
+    var d = new Date();
+    d.setTime(_d * 1000);
+  %>
+    <div class="item table">
+      <div class="icon">
+        <i class="far fa-calendar"></i>
+        <span class="label"><%= e('joined') %></span>
+      </div>
+      <div><%- _d.yyyymmdd('.') %></div>
+    </div>
+  <% } %>
+
+  <!--Personal address-->
+  <div class="item table">
+    <div class="icon">
+      <i class="fa fa-qrcode"></i>
+      <span class="label"><%= e('waddress') %></span>
+    </div>
+    <div elementsid="copyaddress" class="copyaddress" title="<%- deep(author, 'address') %>">
+      <%- deep(author, 'address') %>
+    </div>
+  </div>
+</div>

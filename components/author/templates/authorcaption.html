@@ -9,62 +9,62 @@ var letter = name ? name[0] : '';
 var telements = function(){ %>
 
 	<% if(!user.isItMe(author.address)) {
-		
+
 		var _class=''
-		
+
 		%>
 
-		<% if (me && me.relation(author.address, 'subscribes')){ 
-			
+		<% if (me && me.relation(author.address, 'subscribes')){
+
 			_class="following"
-			
+
 		%>
 
-		<% } else { %> 
-						
+		<% } else { %>
+
 		<% }%>
-		
+
 		<% if(state) { %>
 
 			<span class="middotwrapper">&middot;</span>
 
-			<% if(!app.curation()) {%> 
+			<% if(!app.curation()) {%>
 
 				<span class="subscribebuttonstop <%-_class%>">
 
-					
-					<span elementsid="author_unsubscribe" class="unsubscribe funf"><%=e('youarefollowing')%></span>	
-					<% if (me){ 
-						var r = me.relation(author.address, 'subscribes') 
+
+					<span elementsid="author_unsubscribe" class="unsubscribe funf"><%=e('youarefollowing')%></span>
+					<% if (me){
+						var r = me.relation(author.address, 'subscribes')
 					%>
                      <span elementsid="author_notificationturn" class="notificationturn funf <% if(r && (r.private == 'true' || r.private == '1' || r.private === true)) {%> turnon <% } %>">&middot; <i class="far fa-bell-slash"></i></span>
 					<% } %>
-						
-					<span elementsid="author_subscribe" class="subscribe funf"><%=e('follow')%></span>	
+
+					<span elementsid="author_subscribe" class="subscribe funf"><%=e('follow')%></span>
 
 					&middot; <span elementsid="author_startchat" class="startchat funf"><%=e('startchat').toLowerCase()%>&nbsp;<i class="fas fa-comments"></i></span>
 
 				</span>
 
-			<% } else { %> 
-				<span class="startchat funf"><%=e('startchat')%> <i class="fas fa-comments"></i></span> 
+			<% } else { %>
+				<span class="startchat funf"><%=e('startchat')%> <i class="fas fa-comments"></i></span>
 			<% } %>
 
 			<span class="blockingWrapper">
-				<span elementsid="author_unblocking" class="unblocking funf"><%=e('blocked')%></span>	
+				<span elementsid="author_unblocking" class="unblocking funf"><%=e('blocked')%></span>
 			</span>
 
 		<% } %>
-					
-				
-	<% } else { %> 
+
+
+	<% } else { %>
 
 		<% if(state && app.mobileview) {%>
 			<span class="changeaccount"><%=e('aaddedacc')%> <i elementsid="author_changeaccount" class="fas fa-chevron-down"></i></span>
 		<% } %>
 
 	<% } %>
-	
+
 <% } %>
 
 
@@ -74,10 +74,10 @@ var telements = function(){ %>
             <div class="work">
                 <div class="cwrapper table">
 
-                    <div class="cell cellforimage">
+                    <!--<div class="cell cellforimage">
                         <div class="icon">
 
-                            <% 
+                            <%
                                 var src = deep(author, 'data.image');
                             %>
 
@@ -114,11 +114,11 @@ var telements = function(){ %>
                                 <b class="adr"><%-name || author.address%></b>
 
                                 <% telements() %>
-                                
+
                             </div>
 
                             <div class="mobileinfo">
-                                
+
                             </div>
 
                             <div class="tips">
@@ -133,7 +133,7 @@ var telements = function(){ %>
 
                         </div>
 
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

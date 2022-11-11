@@ -74,12 +74,12 @@ var author = (function(){
 						obj : author,
 
 						success : function(){
-							
+						
 						}
 					},
 
 					clbk : function(){
-						
+					
 					}
 				})
 			}
@@ -104,11 +104,11 @@ var author = (function(){
 						self.app.platform.api.actions.unsubscribe(author.address, function(tx, err){
 
 							if(tx){
-								
+							
 							}
 							else
 							{
-								self.app.platform.errorHandler(err, true)	
+								self.app.platform.errorHandler(err, true)
 							}
 		
 						})
@@ -349,7 +349,7 @@ var author = (function(){
 							}
 		
 							
-						}, 
+						},
 						class : 'tosettings',
 		
 						if : function(){
@@ -454,7 +454,7 @@ var author = (function(){
 		
 								self.app.platform.api.actions.unblocking(author.address, function(tx, error){
 									if(!tx){
-										self.app.platform.errorHandler(error, true)	
+										self.app.platform.errorHandler(error, true)
 									}
 								})
 		
@@ -517,7 +517,7 @@ var author = (function(){
 							self.app.mobile.vibration.small()
 							self.app.platform.api.actions.blocking(author.address, function(tx, error){
 								if(!tx){
-									self.app.platform.errorHandler(error, true)	
+									self.app.platform.errorHandler(error, true)
 								}
 							})
 
@@ -536,7 +536,7 @@ var author = (function(){
 							self.app.mobile.vibration.small()
 							self.app.platform.api.actions.unblocking(author.address, function(tx, error){
 								if(!tx){
-									self.app.platform.errorHandler(error, true)	
+									self.app.platform.errorHandler(error, true)
 								}
 							})
 
@@ -590,7 +590,7 @@ var author = (function(){
 						})
 
 					}
-						
+					
 				}
 
 				report.active = true;
@@ -694,26 +694,36 @@ var author = (function(){
 
 					}, function(p){
 
-						p.el.find('.showmoreabout').on('click', actions.showmoreabout)
-
-						p.el.find('.copyaddress').on('click', function(){
-							copyText($(this))
-
-							sitemessage(self.app.localization.e('successcopied'))
-						})
-
 						p.el.find('.postcnt').on('click', function(){
 
 							renders.report(reports.contents)
 
 						})
-
-						p.el.find('.showmoreinabout').on('click', function(){
-							p.el.find('.authorinfo').addClass('displayedall')
-						})
 					})
 
 			
+			},
+			
+			about : function (_el) {
+				self.shell({
+					
+					name :  'about',
+					el :   _el,
+					
+					data : {
+						author : author
+					},
+					
+					animation : false,
+					
+				}, function(p){
+					
+					p.el.find('.copyaddress').on('click', function(){
+						copyText($(this))
+						sitemessage(self.app.localization.e('successcopied'))
+					})
+				
+				})
 			},
 
 			followers : function(_el, report){
@@ -740,25 +750,40 @@ var author = (function(){
 			},
 
 			following : function(_el, report){
-
-				var u = _.map(deep(author, 'data.subscribes') || [], function(a){
-					return a.adddress
-				})
-
-				var blocked = deep(author, 'data.blocking') || []
-
-				u = _.filter(u, function(a){
-					return _.indexOf(blocked, a) == -1
-				})
-
-				var e = self.app.localization.e('anofollowing');
-
-				if(self.user.isItMe(author.address)){
-					e = self.app.localization.e('aynofollowing')
-				}
-
-				renders.userslist(_el, u, e, self.app.localization.e('following'), function(e, p){
-					report.module = p;
+				
+				self.shell({
+					
+					name :  'following',
+					el :   _el,
+					
+					data : {
+						author : author
+					},
+					
+					animation : false,
+					
+				}, function(p){
+					
+					var u = _.map(deep(author, 'data.subscribes') || [], function(a){
+						return a.adddress
+					})
+					
+					var blocked = deep(author, 'data.blocking') || []
+					
+					u = _.filter(u, function(a){
+						return _.indexOf(blocked, a) == -1
+					})
+					
+					var e = self.app.localization.e('anofollowing');
+					
+					if(self.user.isItMe(author.address)){
+						e = self.app.localization.e('aynofollowing')
+					}
+					
+					renders.userslist(_el.find('.list'), u, e, self.app.localization.e('following'), function(e, p){
+						report.module = p;
+					})
+					
 				})
 			},
 
@@ -818,7 +843,7 @@ var author = (function(){
 		
 						if (n) hr = n.toLowerCase() + "?"
 		
-						self.app.platform.papi.post(id, p.el.find('.postcnt'), function(e, _p){					
+						self.app.platform.papi.post(id, p.el.find('.postcnt'), function(e, _p){
 							external = _p
 							
 						
@@ -860,7 +885,7 @@ var author = (function(){
 						essenseData : {
 							minimized : true,
 							post : function(){
-								
+							
 							}
 						}
 					})
@@ -881,7 +906,7 @@ var author = (function(){
 					share = null
 				}
 
-				var load = function(){			
+				var load = function(){
 				
 					var pp = {
 
@@ -956,13 +981,13 @@ var author = (function(){
 										},
 			
 										tpl : function(result, clbk){
-											
+										
 										}
 									},
 
 									right : isTablet(),
 			
-									events : {							
+									events : {
 										search : function(value, clbk, e, helpers){
 			
 											var href = '?report=shares&ssa=' + value.replace("#", 'tag:')
@@ -973,7 +998,7 @@ var author = (function(){
 												history : true,
 												open : true,
 												handler : true
-											}	
+											}
 			
 											self.nav.api.go(p)
 			
@@ -1032,7 +1057,7 @@ var author = (function(){
 
 					hr = n.toLowerCase() + "?r=b&mt=" + parameters().mt
 					params.beginmaterial = parameters().mt
-					params.contents = true	
+					params.contents = true
 
 					self.app.platform.sdk.contents.get(author.address, function(contents){
 
@@ -1054,7 +1079,7 @@ var author = (function(){
 						params.loader = function(clbk){
 
 							var _clbk = function(data){
-								var shares = self.app.platform.sdk.node.shares.transform(data) 
+								var shares = self.app.platform.sdk.node.shares.transform(data)
 
 								if (clbk)
 									clbk(shares, null, {
@@ -1084,7 +1109,7 @@ var author = (function(){
 
 			},
 			load : function(){
-				
+			
 			}
 		}
 
@@ -1137,7 +1162,7 @@ var author = (function(){
 					clbk(data)
 				}
 
-			}, start, count)	
+			}, start, count)
 
 		}
 
@@ -1183,7 +1208,7 @@ var author = (function(){
 					if (el.subscribe)
 						el.subscribe.addClass('following')
 
-					el.c.find('.notificationturn').removeClass('turnon')	
+					el.c.find('.notificationturn').removeClass('turnon')
 
 					el.c.find('.toReport[report="followers"] .count').html(reports.followers.count())
 					el.c.find('.toReport[report="following"] .count').html(reports.following.count())
@@ -1201,7 +1226,7 @@ var author = (function(){
 					if (el.subscribe)
 						el.subscribe.addClass('following')
 
-					el.c.find('.notificationturn').addClass('turnon')	
+					el.c.find('.notificationturn').addClass('turnon')
 
 					el.c.find('.toReport[report="followers"] .count').html(reports.followers.count())
 					el.c.find('.toReport[report="following"] .count').html(reports.following.count())
@@ -1221,7 +1246,7 @@ var author = (function(){
 						el.subscribe.removeClass('following')
 
 
-					el.c.find('.notificationturn').removeClass('turnon')	
+					el.c.find('.notificationturn').removeClass('turnon')
 
 					el.c.find('.toReport[report="followers"] .count').html(reports.followers.count())
 					el.c.find('.toReport[report="following"] .count').html(reports.following.count())
@@ -1293,10 +1318,13 @@ var author = (function(){
 				},
 				class : 'light',
 				rightEl : el.c.find('.leftpanelcell')
-			})	
+			})
 
-			if(!isTablet())
+			if(!isTablet()) {
 				renders.info(el.info)
+				renders.about(el.about)
+				renders.following(el.following)
+			}
 		}
 
 		var init = function(){
@@ -1447,7 +1475,12 @@ var author = (function(){
 				result = null
 
 				initreports()
+				
+				console.log(self.loadTemplate({
+					name : 'authorcaption'
+				}))
 
+				// TODO: Modify that, loadTemplate should return a Promise
 				self.loadTemplate({
 					name : 'authorcaption'
 				}, function(){
@@ -1455,9 +1488,21 @@ var author = (function(){
 					self.loadTemplate({
 						name : 'info'
 					}, function(){
-
-						self.sdk.users.addressByName(p.address, function(address){
-							preinit(address, clbk)
+						
+						self.loadTemplate({
+							name : 'about'
+						}, function(){
+							
+							self.loadTemplate({
+								name : 'following'
+							}, function(){
+								
+								self.sdk.users.addressByName(p.address, function(address){
+									preinit(address, clbk)
+								})
+								
+							})
+							
 						})
 
 					})
@@ -1516,6 +1561,8 @@ var author = (function(){
 				el.w = $(window);
 				el.contents = el.c.find('.contentswrapper')
 				el.info = el.c.find('.authorinfoWrapper')
+				el.about = el.c.find('.authoraboutWrapper')
+				el.following = el.c.find('.followingWrapper')
 				el.authorcaption = el.c.find('.bgCaptionWrapper')
 
 				initEvents();
@@ -1524,7 +1571,7 @@ var author = (function(){
 				p.clbk(null, p);
 			},
 
-			wnd : {			
+			wnd : {
 				class : 'normalizedmobile',
 			}
 		}
@@ -1554,7 +1601,7 @@ var author = (function(){
 		_.each(essenses, function(e){
 			e.authclbk()
 		})
-	} 
+	}
 
 	return self;
 })();
