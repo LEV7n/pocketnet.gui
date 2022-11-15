@@ -779,3 +779,104 @@ html.mobileview #lenta .fullScreenVideo .sharecnt {
 html.mobileview.fullscreen #lenta .fullScreenVideo #comments {
   display: none;
 }
+/*New profile styles*/
+#lenta .share {
+  margin-bottom: 1.1em;
+}
+#lenta .shareinlenta.rendered .sharecnt .post {
+  padding-top: 0.8em;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta {
+  margin-bottom: 1.5em;
+  position: relative;
+  height: 1%;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta:before {
+  border-bottom: 1px solid #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: -4em;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta .metawrapper {
+  padding-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta .metawrapper .meta {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta .authorTable .authorCell .adr {
+  font-size: 0.94em;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta .authorTable .authorCell .spsp {
+  color: #00A4FF;
+  /*CHANGE TO THEME COLOR*/
+  font-size: 80%;
+  font-weight: 400;
+  margin: 0 0 0 0.5em;
+}
+#lenta .shareinlenta.rendered .sharecnt .formeta .authorTable .realtime {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  font-size: 0.8em;
+}
+#lenta .shareinlenta.rendered .sharecnt .tags {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  font-size: 0.95em;
+  margin-bottom: 0.75em;
+}
+#lenta .shareinlenta.rendered .sharecnt .cntscontent .panel {
+  overflow: visible;
+  position: relative;
+  padding-top: 1em;
+}
+#lenta .shareinlenta.rendered .sharecnt .cntscontent .panel:before {
+  border-bottom: 1px solid #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1.5em;
+  left: -5em;
+}
+#lenta .shareinlenta.rendered .commentsWrapper {
+  background: transparent;
+}
+#lenta .shareinlenta.rendered .commentsWrapper .showall {
+  background: #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+}
+#lenta .shareinlenta.rendered .commentsWrapper #comments .list .metatable > div.author,
+#lenta .shareinlenta.rendered .commentsWrapper #comments .list .metatable > div .date {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+}
+#lenta .shareinlenta.rendered .commentsWrapper #comments .list .metatable .adr {
+  color: #000;
+  /*CHANGE TO THEME COLOR*/
+  font-size: 0.95em;
+}
+#lenta .shareinlenta.rendered .commentsWrapper #comments .post {
+  border-top: 1px solid #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  padding-top: 0;
+  padding-right: 1em;
+}
+#lenta .shareinlenta.rendered .commentsWrapper #comments .post .leaveCommentPreview {
+  border: 0;
+  padding-left: 0;
+}
+#lenta .shareinlenta.rendered .commentsWrapper #comments .post .txt {
+  margin-right: 1em;
+}

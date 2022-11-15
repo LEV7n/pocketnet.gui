@@ -91,7 +91,6 @@
 }
 #share.minimized .txt .emojionearea-editor {
   min-height: 60px;
-  padding-left: 0;
   font-size: 1.15em;
   border-radius: 6px;
 }
@@ -1477,4 +1476,57 @@ html.mobileview .wnd.wndsharepost .wndcontent #share .absolutetxwrapper {
   .wnd #share {
     padding: 0;
   }
+}
+/*New profile styles*/
+.newsharewrapper #share {
+  margin-bottom: 0.75em;
+  padding: 0;
+}
+.newsharewrapper #share .postlineWrapper {
+  padding-left: 3.5em;
+}
+.newsharewrapper #share.minimized {
+  margin-bottom: 0;
+}
+.newsharewrapper #share.minimized .iconWrapper {
+  padding-left: 0;
+}
+.newsharewrapper #share.minimized .iconWrapper .usericon {
+  margin: 0;
+}
+.newsharewrapper #share.minimized .emojionearea-editor {
+  padding-left: 0.5em;
+}
+.newsharewrapper #share.minimized .cntwrk {
+  margin-left: 3.5em;
+}
+.newsharewrapper #share.minimized .postlineWrapper {
+  right: 0;
+}
+.newsharewrapper #share.minimized .postpanel .panel {
+  font-size: 1.5em;
+}
+.newsharewrapper #share.minimized .postpanel > div.postWrapper button {
+  font-size: 0.7em;
+}
+.newsharewrapper #share .iconWrapper {
+  width: 3.5em;
+  padding-right: 0;
+  padding-left: 0;
+}
+.newsharewrapper #share .cntwrk {
+  margin-left: 4em;
+  padding-left: 0;
+}
+.newsharewrapper #share .postpanel .panel {
+  font-size: 1.25em;
+}
+.newsharewrapper #share .postpanel > div.postWrapper button {
+  font-size: 0.9em;
+}
+.newsharewrapper #share .poctelc .iconWrapper {
+  width: 3em;
+}
+.newsharewrapper #share .poctelc .cntswrk.formeta {
+  margin-left: 3.5em;
 }

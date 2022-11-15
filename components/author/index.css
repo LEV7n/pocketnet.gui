@@ -63,6 +63,8 @@
   filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.08));
 }
 #author .authorlentawrappermain .authorsearchwrapper .tabs {
+  border-bottom: 1px solid #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
   display: flex;
   align-items: center;
   font-size: 1.1em;
@@ -214,11 +216,11 @@
 #author .lentacell {
   margin-right: 150px;
   margin-left: 315px;
+  padding-left: 2em;
   min-height: 800px;
   overflow: hidden;
 }
 #author .lentacell .cnt {
-  margin: 0 auto;
   max-width: 760px;
 }
 #author .lentaWrapper .authorinfo {
