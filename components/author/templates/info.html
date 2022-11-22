@@ -5,7 +5,7 @@ var letter = name ? name[0] : '';
 
 <div class="authorinfo <% if(app.curation()) {%> displayedall <% } %> pane">
   <!--Unknown button-->
-  <button class="button unknown-btn"><i class="fa fa-ellipsis-h"></i></button>
+  <a class="button change-account" href="userpage?id=accounts"><i class="fa fa-ellipsis-h"></i></a>
 
   <!--Avatar-->
   <div class="avatar">
@@ -23,7 +23,7 @@ var letter = name ? name[0] : '';
         <%= app.platform.ui.markUser(author.address) %>
       <% } %>
 
-      <i class="status-icon"></i>
+      <!--<i class="status-icon"></i>-->
       <i class="verified-icon"></i>
     </div>
   </div>
@@ -32,7 +32,7 @@ var letter = name ? name[0] : '';
   <% if(deep(author, 'data.name')) { %>
     <div class="name">
       <%- filterXSS(deep(author, 'data.name')) %>
-      <span class="status">Knight</span>
+      <!--<span class="status">Knight</span>-->
     </div>
   <% } %>
 
@@ -57,19 +57,27 @@ var letter = name ? name[0] : '';
   </div>
 
   <!--Buttons-->
-  <ul class="buttons">
-    <li>
-      <!--Edit profile-->
-      <button class="button btn-edit-profile fit"><%= e('e13186') %></button>
-    </li>
-    <li>
-      <!--Wallet-->
-      <button class="button fit">
-        <i class="fa fa-wallet"></i>
-        <i class="label"><%= e('rwallet') %></i>
-      </button>
-      <!--Settings-->
-      <button class="button"><i class="fa fa-cog"></i></button>
-    </li>
-  </ul>
+  <div class="buttons">
+    <!--Edit profile-->
+    <a class="button fit btn-edit-profile" href="userpage?id=test"><%= e('e13186') %></a>
+
+    <!--Settings-->
+    <a class="button" href="userpage?id=usersettings"><i class="fa fa-cog"></i></a>
+  </div>
+</div>
+
+<div class="pane small">
+  <div class="buttons">
+    <!--Wallet-->
+    <a class="button fit" href="userpage?id=wallet">
+      <i class="fa fa-wallet"></i>
+      <i class="label"><%= e('rwallet') %></i>
+    </a>
+
+    <!--Video-->
+    <a class="button fit" href="userpage?id=wallet">
+      <i class="fa fa-video"></i>
+      <i class="label"><%= e('video') %></i>
+    </a>
+  </div>
 </div>
