@@ -711,7 +711,8 @@ var author = (function(){
 					el :   _el,
 					
 					data : {
-						author : author
+						author : author,
+						isItMe : self.user.isItMe(author.address)
 					},
 					
 					animation : false,
@@ -745,7 +746,7 @@ var author = (function(){
 				}
 
 				renders.userslist(_el, u, e, self.app.localization.e('followers'), function(e, p){
-					report.module = p;
+					if (report) report.module = p;
 				})
 			},
 
@@ -780,8 +781,21 @@ var author = (function(){
 						e = self.app.localization.e('aynofollowing')
 					}
 					
-					renders.userslist(_el.find('.list'), u, e, self.app.localization.e('following'), function(e, p){
-						report.module = p;
+					renders.userslist(_el.find('.list'), u, e, '', function(e, p){
+						if (report) report.module = p;
+						
+						p.el.find('.btn-show-following').on('click', function(){
+							self.nav.api.go({
+								open : true,
+								href : 'accounts',
+								inWnd : true,
+								history : true,
+								essenseData : {
+									toaccpage : true
+								}
+								
+							})
+						})
 					})
 					
 				})
@@ -1324,6 +1338,7 @@ var author = (function(){
 				renders.info(el.info)
 				renders.about(el.about)
 				renders.following(el.following)
+				// renders.followers(el.followers)
 			}
 		}
 
@@ -1476,40 +1491,19 @@ var author = (function(){
 
 				initreports()
 				
-				console.log(self.loadTemplate({
-					name : 'authorcaption'
-				}))
-
-				// TODO: Modify that, loadTemplate should return a Promise
-				self.loadTemplate({
-					name : 'authorcaption'
-				}, function(){
-
-					self.loadTemplate({
-						name : 'info'
-					}, function(){
-						
-						self.loadTemplate({
-							name : 'about'
-						}, function(){
-							
-							self.loadTemplate({
-								name : 'following'
-							}, function(){
-								
-								self.sdk.users.addressByName(p.address, function(address){
-									preinit(address, clbk)
-								})
-								
-							})
-							
-						})
-
+				/*Get templates for aside*/
+				Promise.all([
+					self.loadTemplate({ name: 'authorcaption' }),
+					self.loadTemplate({ name: 'info' }),
+					self.loadTemplate({ name: 'about' }),
+					self.loadTemplate({ name: 'following' }),
+					self.loadTemplate({ name: 'followers' })
+				]).then(() => {
+					self.sdk.users.addressByName(p.address, function(address){
+						preinit(address, clbk)
 					})
-
 				})
 				
-
 			},
 
 			destroy : function(){
@@ -1563,6 +1557,7 @@ var author = (function(){
 				el.info = el.c.find('.authorinfoWrapper')
 				el.about = el.c.find('.authoraboutWrapper')
 				el.following = el.c.find('.followingWrapper')
+				el.followers = el.c.find('.followersWrapper')
 				el.authorcaption = el.c.find('.bgCaptionWrapper')
 
 				initEvents();

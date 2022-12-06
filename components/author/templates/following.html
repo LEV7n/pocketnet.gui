@@ -1,8 +1,13 @@
-<!--Following-->
+<!--List of users that I'm following-->
 <div class="authorfollowing pane">
   <!--Heading-->
-  <strong class="item heading">Following</strong>
+  <strong class="item heading"><%= e('following2') %> <sup class="counter"><%- deep(author, 'data.subscribes_count') || 0 %></sup></strong>
 
   <!--List-->
   <div class="list"></div>
+
+  <div class="buttons">
+    <!--Show all-->
+    <a href="#" class="btn-show-following button fit"><%= e('showall') %></a>
+  </div>
 </div>

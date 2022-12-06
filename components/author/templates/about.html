@@ -1,11 +1,12 @@
 <!--Personal info-->
 <div class="authorabout pane">
   <!--Heading-->
-  <strong class="item heading"><%= e('uuserinfo') %></strong>
+  <strong class="item heading"><%= e(!isItMe ? 'uuserinfo' : 'aboutTitterTable33') %></strong>
 
   <!--Description-->
   <% if(deep(author, 'data.about')) {
     var description = deep(author, 'data.about');
+    console.log(author)
   %>
     <p class="item description">
       <%= filterXSS(clearScripts((findAndReplaceLink(description, true)))) %>

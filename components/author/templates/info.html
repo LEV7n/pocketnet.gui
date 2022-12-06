@@ -4,9 +4,6 @@ var letter = name ? name[0] : '';
 %>
 
 <div class="authorinfo <% if(app.curation()) {%> displayedall <% } %> pane">
-  <!--Unknown button-->
-  <a class="button change-account" href="userpage?id=accounts"><i class="fa fa-ellipsis-h"></i></a>
-
   <!--Avatar-->
   <div class="avatar">
     <% var src = deep(author, 'data.image'); %>
@@ -63,21 +60,5 @@ var letter = name ? name[0] : '';
 
     <!--Settings-->
     <a class="button" href="userpage?id=usersettings"><i class="fa fa-cog"></i></a>
-  </div>
-</div>
-
-<div class="pane small">
-  <div class="buttons">
-    <!--Wallet-->
-    <a class="button fit" href="userpage?id=wallet">
-      <i class="fa fa-wallet"></i>
-      <i class="label"><%= e('rwallet') %></i>
-    </a>
-
-    <!--Video-->
-    <a class="button fit" href="userpage?id=wallet">
-      <i class="fa fa-video"></i>
-      <i class="label"><%= e('video') %></i>
-    </a>
   </div>
 </div>

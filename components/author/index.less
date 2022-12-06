@@ -12,7 +12,7 @@
 	}
 
 	.authorlentawrapper{
-		margin-top : 2.2 * @rhythm;
+		/*margin-top : 2.2 * @rhythm;*/
 	}
 
 	&.curation{
@@ -49,9 +49,9 @@
 
 		.authorsearchicon{
 			position: absolute;
-			left: 100%;
+			right: @rhythm;
 			top : 0;
-			padding-top : @rhythm;
+			padding-top : .5 * @rhythm;
 
 			.icon{
 				padding : 2 * @rhythm;
@@ -71,7 +71,7 @@
 			padding : 0.5 * @rhythm 1 * @rhythm;
 			border-right: 3px;
 			margin-top : 2.2 * @rhythm;
-			border-radius: 12px;
+			border-radius: 12px 12px 0 0;
 			filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.08));
 
 			.tabs{
@@ -119,9 +119,18 @@
 			}
 
 			.authorsearch{
+				display: none;
+				border-bottom: 1px solid #F3F3F2;
 				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
 				margin: 0 -1 * @rhythm -0.5 * @rhythm -1 * @rhythm;
 				padding : 0.5 * @rhythm 1 * @rhythm;
+			}
+
+			+ .authorlentawrapper{
+				.share:first-child,
+				.loader{
+					border-radius: 0 0 12px 12px;
+				}
 			}
 
 			.search{
@@ -143,7 +152,7 @@
 		}
 
 		&.searchactive{
-			.authorsearchwrapper{
+			.authorsearch{
 				display: block;
 			}
 
@@ -349,28 +358,38 @@
 			text-align: left;
 		}
 
+		.counter{
+			color: #8E90A6; /*CHANGE TO THEME COLOR*/
+			font-weight: normal;
+		}
+
 		.buttons{
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
 
-			.fit{
-				flex: 1;
+			.alt{
+				background: #fff; /*CHANGE TO THEME COLOR*/
+				border: 0;
 			}
 		}
 
 		.button{
 			background: transparent;
-			border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
+			border: 1px solid #C7C8D9; /*CHANGE TO THEME COLOR*/
 			border-radius: 8px;
 			color: #000;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 1.05em;
-			font-weight: 600;
+			font-size: .95em;
+			font-weight: normal;
 			margin: 0 .5em 0 0;
-			padding: 1em 1.2em;
+			padding: .5em 1.2em;
+
+			&.fit{
+				flex: 1;
+			}
 
 			&:hover{
 				background: rgb(var(--color-bg-ac-bright));
@@ -386,9 +405,8 @@
 			}
 
 			&.btn-edit-profile{
-				font-size: 1.2em;
 				font-weight: 400;
-				padding: .8em 1em;
+				padding: .75em 1em;
 			}
 
 			i[class^="fa"]{
@@ -513,7 +531,9 @@
 	/*Author about*/
 	.authorabout{
 		.description{
-			margin: 0;
+			border-bottom: 1px solid #F3F3F2; /*CHANGE TO THEME COLOR*/
+			padding-bottom: 2 * @rhythm;
+			width: 100%;
 		}
 
 		.links{
@@ -552,7 +572,31 @@
 			padding: 0;
 		}
 
+		.users{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 0 2 * @rhythm;
+			padding: @rhythm 0 0;
+
+			.wrk:not(:first-child){
+				margin-left: 2 * @rhythm;
+
+				.user {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+
+		.addressTable{
+			display: block;
+			height: auto;
+			width: auto;
+		}
+
 		.caption,
+		.label,
 		.extra{
 			display: none;
 		}
