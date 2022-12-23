@@ -1,3 +1,62 @@
+<% if(isItMe) { %>
+<!--Personal menu-->
+<div class="authormenu pane">
+  <ul class="items">
+    <!--Wallet-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-wallet"></i>
+        <a class="link" href="userpage?id=wallet"><%= e('rwallet') %></a>
+      </div>
+      <div class="value balance"><span class="number">0</span> PKOIN</div>
+    </li>
+
+    <!--Video-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-video"></i>
+        <a class="link" href="userpage?id=videoCabinet"><%= e('e14105') %></a>
+      </div>
+      <div class="value">-</div>
+    </li>
+
+    <!--Collections-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-layer-group"></i>
+        <a class="link" href="#"><%= e('Collections') %></a>
+      </div>
+      <div class="value">-</div>
+    </li>
+
+    <!--Blocked-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-user-lock"></i>
+        <a class="link" href="#"><%= e('blockedusers') %></a>
+      </div>
+      <div class="value">-</div>
+    </li>
+
+    <!--Paid subscriptions-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-dollar-sign"></i>
+        <a class="link" href="#"><%= e('Paid subscriptions') %></a>
+      </div>
+    </li>
+
+    <!--Settings-->
+    <li class="item table">
+      <div class="icon">
+        <i class="fa fa-cog"></i>
+        <a class="link" href="userpage?id=usersettings"><%= e('rsettings') %></a>
+      </div>
+    </li>
+  </ul>
+</div>
+<% } %>
+
 <!--Personal info-->
 <div class="authorabout pane">
   <!--Heading-->
@@ -8,48 +67,86 @@
     var description = deep(author, 'data.about');
     console.log(author)
   %>
-    <p class="item description">
-      <%= filterXSS(clearScripts((findAndReplaceLink(description, true)))) %>
-    </p>
+    <p class="item description collapsed"
+    ><%= filterXSS(clearScripts((findAndReplaceLink(description, true)))) %></p>
   <% } %>
 
-  <!--Link-->
-  <% if(deep(author, 'data.site')) { %>
-  <div class="item table">
-    <div class="label">
-      <i class="fas fa-link"></i>
-      <a elementsid="<%-deep(author, 'data.site')%>" href="<% -deep(author, 'data.site') %>">
-        <%- filterXSS(deep(author, 'data.site').replace(/.+:\/\//, '')) %>
-      </a>
-    </div>
+  <div id="author-data" class="collapsible collapsed">
+    <ul class="items">
+      <!--Link-->
+      <% if(deep(author, 'data.site')) { %>
+      <li class="item table bordered">
+        <div class="label">
+          <i class="fas fa-link"></i>
+          <a elementsid="<%= deep(author, 'data.site')%>" href="<%= deep(author, 'data.site') %>">
+            <%= filterXSS(deep(author, 'data.site').replace(/.+:\/\//, '')) %>
+          </a>
+        </div>
+      </li>
+      <% } %>
+
+      <!--Wallets addresses-->
+      <li>
+        <dl class="wallets">
+          <%
+          var wallets = [{
+            currency: 'pkoin',
+            address: deep(author, 'address')
+          }].concat(deep(author, 'data.addresses') || []);
+
+          wallets
+            .filter(f => typeof f === 'object')
+            .forEach((wallet) => {
+              var
+                type = (() => {
+                  switch (wallet.currency) {
+                    case 'btc': return 'bitcoin';
+                    case 'ltc': return 'litecoin';
+                    case 'xmr': return 'monero';
+                    default: return 'pocketcoin';
+                  }
+                })(),
+                name = type.charAt(0).toUpperCase() + type.slice(1);
+          %>
+          <!--<%= wallet.currency %>-->
+          <dt><%= name %></dt>
+          <dd>
+            <div class="icon">
+              <i class="<%= type %>"></i>
+            </div>
+            <span class="address" title="<%= wallet.address %>">
+              <%= wallet.address %>
+            </span>
+            <div elementsid="copyaddress" class="copyaddress">
+              <span class="address"><%= wallet.address %></span>
+              <i class="fa fa-copy"></i>
+            </div>
+          </dd>
+          <%
+          });
+          %>
+        </dl>
+      </li>
+
+      <!--Registered date-->
+      <%
+      var _d = deep(author, 'data.regdate');
+
+      if(_d) {
+      var d = new Date();
+      d.setTime(_d * 1000);
+      %>
+      <li class="item table">
+        <div class="icon">
+          <i class="far fa-calendar"></i>
+          <span class="label"><%= e('joined') %></span>
+        </div>
+        <div><%= _d.yyyymmdd('.') %></div>
+      </li>
+      <% } %>
+    </ul>
   </div>
-  <% } %>
 
-  <!--Registered date-->
-  <%
-  var _d = deep(author, 'data.regdate');
-
-  if(_d) {
-    var d = new Date();
-    d.setTime(_d * 1000);
-  %>
-    <div class="item table">
-      <div class="icon">
-        <i class="far fa-calendar"></i>
-        <span class="label"><%= e('joined') %></span>
-      </div>
-      <div><%- _d.yyyymmdd('.') %></div>
-    </div>
-  <% } %>
-
-  <!--Personal address-->
-  <div class="item table">
-    <div class="icon">
-      <i class="fa fa-qrcode"></i>
-      <span class="label"><%= e('waddress') %></span>
-    </div>
-    <div elementsid="copyaddress" class="copyaddress" title="<%- deep(author, 'address') %>">
-      <%- deep(author, 'address') %>
-    </div>
-  </div>
+  <!--Show more/less-->
+  <a class="link collapsible" data-collapse="author-data"><%= e('showmore') %></a>
 </div>

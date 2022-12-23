@@ -17,14 +17,14 @@
 		&.workstation{
 			height: 20px;
 		}
-		
+
 		vertical-align: bottom;
 	}
 
 	.sitenamelabel{
 		text-transform: uppercase;
 	}
-	
+
 	.menuWrapper{
 		width: 100%;
 		position: fixed;
@@ -35,7 +35,7 @@
 		z-index: 20;
 		contain: strict;
 		background: rgb(var(--background-total-theme));
-		
+
 		// electronnav
 		/*
 		.sections{
@@ -98,11 +98,11 @@
 		font-size: 0.9em;
 	}
 
-	
+
 	&.searchactive{
 		.sections{
 			.items{
-				
+
 				&.searchWrapper{
 					display: block;
 				}
@@ -121,10 +121,10 @@
 
 				.item{
 
-					
-				
+
+
 					&.wallets{
-						
+
 						&:hover{
 							padding-right: 0;
 							padding-left: 0;
@@ -135,7 +135,7 @@
 						display: none;
 					}
 
-					
+
 
 				}
 			}
@@ -150,7 +150,7 @@
 		&:not(.searchactive){
 
 			.sections{
-				.items{				
+				.items{
 					.item{
 						&.navWrapperItem{
 							display: block;
@@ -160,30 +160,30 @@
 			}
 
 			.postssearch{
-		
+
 				.searchPanel,
 				.searchInputWrapper{
 					display: none;
 				}
-	
+
 				.searchInput{
 					background: transparent;
 					border : 1px solid transparent;
 				}
-		
-		
+
+
 				input{
 					color : @color-black2;
 					background: transparent;
 				}
-		
+
 				.searchIconLabel,
 				.searchPanel{
 					color : @color-black2;
 					background: transparent;
 				}
-		
-				
+
+
 			}
 
 			.sections{
@@ -212,7 +212,7 @@
 		justify-content: space-between;
 
 		.section{
-			
+
 			height: 100%;
 			padding: 0 2 * @rhythm;
 			display: flex;
@@ -253,11 +253,11 @@
 					vertical-align: middle;
 				}
 			}
-		
-			
+
+
 			&.keyexportWrapper{
 				margin-left : @rhythm;
-				color : rgb(var(--color-txt-orange));	
+				color : rgb(var(--color-txt-orange));
 			}
 
 			&.control-app{
@@ -276,13 +276,13 @@
 					}
 				}
 			}
-			
+
 			&.notificationsWrapper{
 				margin-right : @rhythm;
 			}
 
 			&.gethotpostsWrapper{
-				color : rgb(var(--color-txt-orange));	
+				color : rgb(var(--color-txt-orange));
 				margin-left : 2 * @rhythm;
 
 				i{
@@ -313,7 +313,7 @@
 					cursor: pointer;
 					.transition(0.3s);
 					&:hover{
-						color : rgb(var(--color-txt-ac));	
+						color : rgb(var(--color-txt-ac));
 					}
 				}
 			}
@@ -393,9 +393,9 @@
                 }
 
 				&.signup{
-					color : rgb(var(--color-txt-orange));	
+					color : rgb(var(--color-txt-orange));
 				}
-				
+
 				&.onlyicon{
 
 					.icon{
@@ -403,14 +403,14 @@
 					}
 
 					.count{
-						color: rgb(var(--color-bg-ac-2));	
+						color: rgb(var(--color-bg-ac-2));
 					}
 				}
 
 
 				&.navWrapperItem{
 					display: none;
-					
+
 					.panelitemCenter{
 						height: 100%;
 						margin : 0 auto;
@@ -431,21 +431,21 @@
 								padding : 0 2 * @rhythm;
 								.transition(0.3s);
 								font-weight: 400;
-								
+
 								&:hover,
 								&.active{
-									color : rgb(var(--color-txt-ac));	
+									color : rgb(var(--color-txt-ac));
 
 									a{
 										span{
-											background: rgba(var(--color-txt-ac), 0.7);	
+											background: rgba(var(--color-txt-ac), 0.7);
 										}
 									}
 								}
 
 								a{
 									position: relative;
-			
+
 									span{
 										position: absolute;
 										display: block;
@@ -462,15 +462,15 @@
 										top : 0;
 										margin-left : 0.5 * @rhythm;
 										.transition(0.3s);
-			
+
 										&.hasunseen{
 											opacity: 1;
 										}
 									}
-			
+
 									&:hover{
 										span{
-											background: rgba(var(--color-bg-ac), 0.7); 
+											background: rgba(var(--color-bg-ac), 0.7);
 										}
 									}
 								}
@@ -530,13 +530,13 @@
 						.pcenterLabel{
 							font-size : 0.9em;
 							&.active{
-								color : rgb(var(--color-txt-ac)); 
-								border-bottom: 1px solid rgb(var(--color-txt-ac)); 
-							
+								color : rgb(var(--color-txt-ac));
+								border-bottom: 1px solid rgb(var(--color-txt-ac));
+
 							}
 						}
 
-						
+
 					}
 
 					&.lentamenu{
@@ -553,13 +553,13 @@
 				&.localization{
 					margin-right: 2 * @rhythm;
 					position: relative;
-					
+
 
 					.label{
 						font-weight: 100;
 						cursor: pointer;
 					}
-					
+
 					.vc_valuecustom{
 						width: 100px;
 						position: relative;
@@ -574,7 +574,7 @@
 						}
 
 						.vc_selectInput{
-							border: 1px solid rgb(var(--neutral-grad-4)); 
+							border: 1px solid rgb(var(--neutral-grad-4));
 						}
 
 						input{
@@ -634,7 +634,7 @@
 								}
 							}
 
-							
+
 						}
 					}
 
@@ -644,11 +644,11 @@
 						}
 					}
 				}
-				
+
 			}
 
-		
-			
+
+
 		}
 	}
 
@@ -663,7 +663,7 @@
 		background-color: rgb(var(--background-total-theme));
 		padding: @rhythm;
 		margin-top : @rhythm;
-		
+
 		.table{
 			>div{
 				padding : 0;
@@ -678,7 +678,7 @@
 			padding : 0 @rhythm;
 			cursor: pointer;
 			.transition(0.3s);
-			
+
 			&:hover{
 				color : rgb(var(--color-txt-ac));
 			}
@@ -709,7 +709,7 @@
 					width: 100%;
 					cursor: pointer;
 					>div{
-						color : rgba(var(--color-txt-gray-dark), 0.8); 
+						color : rgba(var(--color-txt-gray-dark), 0.8);
 						.transition(0.3s);
 
 						&.rsicon{
@@ -717,7 +717,7 @@
 							text-align: center;
 							font-size: 0.8em;
 						}
-	
+
 						&.label{
 							text-align: left;
 							padding-left: @rhythm;
@@ -729,8 +729,8 @@
 							color : rgb(var(--color-txt-gray-dark));
 						}
 					}
-				}	
-				
+				}
+
 			}
 		}
 
@@ -755,7 +755,7 @@
 					.letter{
 						font-size: 1em;
 						top: -4px;
-						position: relative		
+						position: relative
 					}
 				}
 			}
@@ -801,7 +801,7 @@
 			max-width: 700px;
 			margin : 0 auto;
 
-			
+
 		}
 
 		.searchInputIcon{
@@ -837,7 +837,7 @@
 			border : 0;
 		}
 
-		
+
 		.searchIconLabel{
 			width: 38px;
 			-webkit-transition: none;
@@ -848,9 +848,9 @@
 			width: 4 * @rhythm;
 			font-size: 0.8em;
 			text-align: center;
-			
+
 		}
-		
+
 	}
 
 	.signup,
@@ -870,11 +870,11 @@
 
 	.signup{
 		margin-left: 4 * @rhythm;
-		
+
 	}
 
 
-	
+
 }
 
 
@@ -885,7 +885,7 @@
 			margin-left: 2 * @rhythm;
 			margin-right: 2 * @rhythm;
 		}
-		
+
 
 		.sections{
 			width: 100%;
@@ -910,8 +910,8 @@
 				}
 
 				&:nth-child(1){
-					padding-left: 0;				
-				}			
+					padding-left: 0;
+				}
 			}
 
 			.items{
@@ -980,7 +980,7 @@
 
 		&:not(.searchactive){
 			.postssearch{
-		
+
 				.searchPanel,
 				.searchInputWrapper{
 					display: none;
@@ -990,12 +990,12 @@
 					background: transparent!important;
 					border : 1px solid transparent!important;
 				}
-		
+
 				input{
 					color : rgb(var(--text-color));
 					background: transparent;
 				}
-		
+
 				.searchIconLabel,
 				.searchPanel{
 					color : rgb(var(--text-color));
@@ -1005,7 +1005,7 @@
 				.searchFastResultWrapper{
 					display: none;
 				}
-				
+
 			}
 			.sections{
 				.items.searchWrapper{
@@ -1018,7 +1018,7 @@
 			input{
 				padding : 0;
 			}
-			
+
 		}
 
 		.sections{
@@ -1050,7 +1050,7 @@
 							}
 						}
 					}
-				}	
+				}
 
 				&.navWrapper{
 					display: none!important;
@@ -1075,7 +1075,7 @@
 					&.right{
 						width : 100%;
 					}
-					
+
 					.items.searchWrapper{
 						width : 100%;
 
@@ -1127,7 +1127,7 @@
 				.sitename .label{
 					display: none;
 				}
-		
+
 			}
 
 			//.centerpart,
@@ -1150,10 +1150,10 @@
 				width: 24px!important;
 			}
 
-			
+
 
 		}
-	} 
+	}
 
-	
+
 }

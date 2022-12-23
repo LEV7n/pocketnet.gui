@@ -687,7 +687,8 @@ var author = (function(){
 						el :   _el,
 
 						data : {
-							author : author
+							author : author,
+							isItMe : self.user.isItMe(author.address)
 						},
 
 						animation : false,
@@ -722,13 +723,56 @@ var author = (function(){
 					p.el.find('.copyaddress').on('click', function(){
 						copyText($(this))
 						sitemessage(self.app.localization.e('successcopied'))
+					});
+					
+					/*Menu*/
+					/*_el.find('.authormenu .item a').on('click', function(e){
+						e.preventDefault();
+						
+						self.nav.api.go({
+							open: !0,
+							href: '#',
+							inWnd: !0,
+							essenseData: {
+								href: this.href
+							}
+						})
+					});*/
+					
+					/*Collapsible*/
+					p.el.find('a.collapsible').each(function () {
+						const block = $(`#${ $(this).attr('data-collapse') }`),
+									descr = $('p.description', this.parentNode),
+									swipe = (link) => {
+										$(link).text(
+											self.app.localization.e(`show${ block.hasClass('collapsed') ? 'more' : 'less' }`)
+										)
+									};
+						
+						block.css('height', block.children().outerHeight() + 'px');
+						
+						$(this).on('click', function (e){
+							e.preventDefault();
+							
+							block.toggleClass('collapsed');
+							descr.toggleClass('collapsed');
+							swipe(this);
+						});
+						
+						swipe(this);
 					})
+				})
 				
+				/*Output balance*/
+				self.app.platform.sdk.node.transactions.get.allBalance(function(amount){
+					_el.find('.balance .number').text(
+						amount.toFixed(2)
+					)
 				})
 			},
 
 			followers : function(_el, report){
-
+				/*List of users that following me*/
 				var u = _.map(deep(author, 'data.subscribers') || [], function(a){
 					return a
 				})
@@ -745,13 +789,13 @@ var author = (function(){
 					e = self.app.localization.e('aynofollowers')
 				}
 
-				renders.userslist(_el, u, e, self.app.localization.e('followers'), function(e, p){
+				renders.userslist(_el.find('.list'), u, e, '', function(e, p){
 					if (report) report.module = p;
 				})
 			},
 
 			following : function(_el, report){
-				
+				/*List of users that I'm following*/
 				self.shell({
 					
 					name :  'following',
@@ -764,16 +808,16 @@ var author = (function(){
 					animation : false,
 					
 				}, function(p){
+					var
+						blocked = deep(author, 'data.blocking') || [],
+						u = _.map(deep(author, 'data.subscribes') || [], function(a){
+							return a.adddress
+						}).filter(function(a){
+							return _.indexOf(blocked, a) === -1
+						})
 					
-					var u = _.map(deep(author, 'data.subscribes') || [], function(a){
-						return a.adddress
-					})
-					
-					var blocked = deep(author, 'data.blocking') || []
-					
-					u = _.filter(u, function(a){
-						return _.indexOf(blocked, a) == -1
-					})
+					/*Shrink users list to 10 in sidebar*/
+					if (u.length > 10) u.splice(10);
 					
 					var e = self.app.localization.e('anofollowing');
 					
@@ -784,20 +828,17 @@ var author = (function(){
 					renders.userslist(_el.find('.list'), u, e, '', function(e, p){
 						if (report) report.module = p;
 						
-						p.el.find('.btn-show-following').on('click', function(){
+						_el.find('.btn-show-following').on('click', function(e){
+							e.preventDefault();
+							
 							self.nav.api.go({
-								open : true,
-								href : 'accounts',
-								inWnd : true,
-								history : true,
-								essenseData : {
-									toaccpage : true
-								}
-								
+								open: !0,
+								href: '#',
+								inWnd: !0,
+								essenseData: {}
 							})
 						})
 					})
-					
 				})
 			},
 
@@ -1333,10 +1374,11 @@ var author = (function(){
 				class : 'light',
 				rightEl : el.c.find('.leftpanelcell')
 			})
-
+			
+			renders.info(el.info)
+			renders.about(el.about)
+			
 			if(!isTablet()) {
-				renders.info(el.info)
-				renders.about(el.about)
 				renders.following(el.following)
 				// renders.followers(el.followers)
 			}

@@ -55,10 +55,15 @@ var letter = name ? name[0] : '';
 
   <!--Buttons-->
   <div class="buttons">
+    <% if(isItMe) { %>
     <!--Edit profile-->
     <a class="button fit btn-edit-profile" href="userpage?id=test"><%= e('e13186') %></a>
 
-    <!--Settings-->
-    <a class="button" href="userpage?id=usersettings"><i class="fa fa-cog"></i></a>
+    <!--Share-->
+    <a class="button" href="#"><i class="fa fa-share-alt"></i></a>
+    <% } else { %>
+      <!--Chat-->
+      <a class="button fit btn-chat" href="#"><i class="fa fa-comments"></i>&nbsp;<%= e('e13279') %></a>
+    <% } %>
   </div>
 </div>
