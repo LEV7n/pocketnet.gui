@@ -24,7 +24,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-layer-group"></i>
-        <a class="link" href="#"><%= e('Collections') %></a>
+        <a class="link" href="collections?author=<%= app.platform.api.authorlink(author.address.toString('hex')) %>"><%= e('Collections') %></a>
       </div>
       <div class="value">-</div>
     </li>
@@ -65,7 +65,6 @@
   <!--Description-->
   <% if(deep(author, 'data.about')) {
     var description = deep(author, 'data.about');
-    console.log(author)
   %>
     <p class="item description collapsed"
     ><%= filterXSS(clearScripts((findAndReplaceLink(description, true)))) %></p>

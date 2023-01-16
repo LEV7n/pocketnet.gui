@@ -1,0 +1,200 @@
+#add-collection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+#add-collection form.collections-holder .progress {
+  background: #f3f3f2;
+  margin: -1em -1em 1em;
+}
+#add-collection form.collections-holder .progress .value {
+  background: #00a4ff;
+  height: 6px;
+  width: calc(100% / 3 * var(--step));
+  -moz-transition: width 0.25s;
+  -o-transition: width 0.25s;
+  -webkit-transition: width 0.25s;
+  transition: width 0.25s;
+}
+#add-collection form.collections-holder .steps {
+  overflow: hidden;
+  width: 100%;
+}
+#add-collection form.collections-holder .steps ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(calc((var(--step) - 1) * -100%));
+  -moz-transition: transform 0.25s;
+  -o-transition: transform 0.25s;
+  -webkit-transition: transform 0.25s;
+  transition: transform 0.25s;
+}
+#add-collection form.collections-holder .steps li {
+  flex-shrink: 0;
+  width: 100%;
+}
+#add-collection form.collections-holder .steps li label {
+  color: #000;
+  display: block;
+  font-weight: bold;
+  margin: 0 0 1.5em;
+}
+#add-collection form.collections-holder .steps li .row {
+  margin: 0 0 1.5em;
+}
+#add-collection form.collections-holder .steps li .row:not(:last-child) {
+  border-bottom: 1px solid #e3e4eb;
+  padding: 0 0 1.5em;
+}
+#add-collection form.collections-holder .steps li input,
+#add-collection form.collections-holder .steps li textarea {
+  border: 1px solid #C7C8D9;
+  vertical-align: top;
+  padding: 0.5em;
+  resize: none;
+  width: 100%;
+}
+#add-collection form.collections-holder .steps li input::placeholder,
+#add-collection form.collections-holder .steps li textarea::placeholder {
+  color: #999CA0;
+}
+#add-collection form.collections-holder .steps li .image-holder {
+  display: flex;
+}
+#add-collection form.collections-holder .steps li .image-holder img {
+  border-radius: 12px;
+  display: block;
+  max-height: 250px;
+}
+#add-collection form.collections-holder .steps li .file {
+  border: 1px solid #C7C8D9;
+  border-radius: 8px;
+  color: #000;
+  display: inline-block;
+  position: relative;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+#add-collection form.collections-holder .steps li .file:hover {
+  background: rgb(var(--color-bg-ac-bright));
+  border: 1px solid rgb(var(--color-bg-ac-bright));
+  color: rgb(var(--text-on-bg-ac-color));
+}
+#add-collection form.collections-holder .steps li .file label {
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+}
+#add-collection form.collections-holder .steps li .file label input[type="file"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+#add-collection form.collections-holder .steps li .file label ~ span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  position: static;
+}
+#add-collection form.collections-holder .steps li .file label ~ span i.fa {
+  display: inline-block;
+  font-size: 1.35em;
+  margin: 0 0.5em 0 0;
+}
+#add-collection form.collections-holder .steps li .file.selected {
+  margin: 1.5em 0 0;
+}
+#add-collection form.collections-holder .steps li .file.selected .upload {
+  display: none;
+}
+#add-collection form.collections-holder .steps li .file.selected .remove {
+  display: flex;
+  position: relative;
+}
+#add-collection form.collections-holder .steps li .file .remove {
+  display: none;
+}
+#add-collection form.collections-holder .steps li p {
+  color: #555770;
+  margin: 0 0 1em;
+}
+#add-collection form.collections-holder .steps li .buttons {
+  display: flex;
+  justify-content: center;
+  font-size: 1.05em;
+}
+#add-collection form.collections-holder .steps li .buttons .type {
+  position: relative;
+  width: 100%;
+}
+#add-collection form.collections-holder .steps li .buttons .type:not(:first-child) {
+  margin-left: 1em;
+}
+#add-collection form.collections-holder .steps li .buttons .type input[type="radio"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+#add-collection form.collections-holder .steps li .buttons .type input[type="radio"]:checked + button {
+  background: rgb(var(--color-bg-ac-bright));
+  border: 1px solid rgb(var(--color-bg-ac-bright));
+  color: rgb(var(--text-on-bg-ac-color));
+}
+#add-collection form.collections-holder .steps li .buttons .type button {
+  background: none;
+  border: 1px solid #C7C8D9;
+  color: #555770;
+  padding: 5em 0.5em;
+  width: 100%;
+  -moz-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+#add-collection form.collections-holder .steps li .buttons .type button .icon {
+  display: block;
+  font-size: 1.75em;
+}
+#add-collection[style$="step:3;"] .navigation .selected {
+  display: inline-block;
+}
+#add-collection .navigation {
+  border-top: 2px solid #E3E4EB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 0 0;
+}
+#add-collection .navigation .button.transparent {
+  background: none;
+  border-color: transparent;
+  color: #8E90A6;
+}
+#add-collection .navigation .button.transparent:hover {
+  border: 1px solid rgb(var(--color-bg-ac-bright));
+  color: rgb(var(--color-bg-ac-bright));
+}
+#add-collection .navigation .selected {
+  color: #555770;
+  display: none;
+  margin: 0 1em 0 0;
+}
+#add-collection .navigation .selected .counter {
+  color: #000;
+}

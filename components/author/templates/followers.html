@@ -1,8 +1,15 @@
 <!--List of users that following me-->
 <div class="authorfollowers pane">
   <!--Heading-->
-  <strong class="item heading"><%= e('followers2') %></strong>
+  <strong class="item heading"><%= e('followers2') %> <sup class="counter"><%- deep(author, 'data.subscribers_count') || 0 %></sup></strong>
 
   <!--List-->
-  <div class="list"></div>
+  <div class="list" data-list="followers"></div>
+
+  <% if(deep(author, 'data.subscribers_count') > 10) { %>
+  <div class="buttons">
+    <!--Show all-->
+    <a href="#" class="btn-show-followers button fit"><%= e('showall') %></a>
+  </div>
+  <% } %>
 </div>

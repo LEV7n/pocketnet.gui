@@ -440,6 +440,7 @@
 		}
 
 		.list{
+			padding: 0 0 @rhythm;
 			width: 100%;
 
 			.users{
@@ -448,7 +449,7 @@
 				grid-template-columns: repeat(auto-fill, 45px);
 				align-items: center;
 				justify-content: center;
-				margin: 0 0 3 * @rhythm;
+				margin: 0;
 				padding: 0;
 
 				.user {
@@ -459,6 +460,10 @@
 						margin: 0 auto;
 					}
 				}
+			}
+
+			+ .buttons{
+				margin: 2 * @rhythm 0 0;
 			}
 		}
 
@@ -492,6 +497,7 @@
 
 			&:hover{
 				background: rgb(var(--color-bg-ac-bright));
+				border: 1px solid rgb(var(--color-bg-ac-bright));
 				color: rgb(var(--text-on-bg-ac-color));
 
 				i[class^="fa"]{
@@ -525,6 +531,23 @@
 			&:hover{
 				text-decoration: underline;
 			}
+		}
+
+		.userslist{
+			background: transparent;
+			padding: 0;
+
+			.caption,
+			.label,
+			.extra{
+				display: none;
+			}
+		}
+
+		.addressTable{
+			display: block;
+			height: auto;
+			width: auto;
 		}
 	}
 
@@ -755,24 +778,68 @@
 		}
 	}
 
+	/*Author collections*/
+	.authorcollections{
+		.collection{
+			.image{
+				margin: 0 0 2 * @rhythm;
+
+				img{
+					width: 100%;
+				}
+			}
+
+			.info{
+				display: flex;
+				justify-content: space-between;
+
+				.description{
+					display: flex;
+					align-items: center;
+
+					.icon{
+						border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
+						border-radius: 10px;
+						color: #8E90A6; /*CHANGE TO THEME COLOR*/
+						display: inline-block;
+						text-align: center;
+						padding: @rhythm;
+						width: 36px;
+					}
+
+					.title{
+						display: flex;
+						font-weight: bold;
+						flex-direction: column;
+						padding: 0 @rhythm;
+
+						span{
+							color: #8E90A6; /*CHANGE TO THEME COLOR*/
+							font-size: .9em;
+							font-weight: normal;
+						}
+					}
+				}
+			}
+
+			.actions{
+				color: #8E90A6; /*CHANGE TO THEME COLOR*/
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+				padding: 0 @rhythm;
+				.transition(.25s, color);
+
+				&:hover{
+					color: #000;
+				}
+			}
+		}
+	}
+
 	/*Author following list*/
 	.authorfollowing{
-		#userslist{
-			background: transparent;
-			padding: 0;
-		}
 
-		.addressTable{
-			display: block;
-			height: auto;
-			width: auto;
-		}
-
-		.caption,
-		.label,
-		.extra{
-			display: none;
-		}
 	}
 
 	.lentaWrapper{

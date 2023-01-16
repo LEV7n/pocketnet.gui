@@ -1,0 +1,112 @@
+<div id="collections">
+  <h1>Collections</h1>
+
+  <div class="authorinfo">
+    <%
+    var name = app.platform.api.name(author.address);
+    var letter = name ? name[0] : '';
+    %>
+    <!--Avatar-->
+    <div class="avatar">
+      <% var src = deep(author, 'data.image'); %>
+      <div elementsid="author_usericon_<%-src || ''%>" ban=".gif" class="usericon" contain="none" image="<%-src || '*'%>">
+        <% if(!src && letter) {%>
+        <span class="letter">
+            <%- letter.toUpperCase() %>
+        </span>
+        <% } else if (!src) { %>
+        <i class="far fa-user"></i>
+        <% } %>
+
+        <% if(app.platform.ui.markUser) { %>
+        <%= app.platform.ui.markUser(author.address) %>
+        <% } %>
+
+        <!--<i class="status-icon"></i>-->
+        <i class="verified-icon"></i>
+      </div>
+    </div>
+
+    <!--Info-->
+    <div class="info">
+      <div class="row">
+        <!--Name-->
+        <% if(deep(author, 'data.name')) { %>
+        <div class="name">
+          <%- filterXSS(deep(author, 'data.name')) %>
+          <sup class="counter"><%- (deep(author, 'state.reputation') || deep(author, 'data.reputation') || 0).toFixed(1) %></sup>
+        </div>
+        <% } %>
+
+        <!--Buttons-->
+        <div class="buttons">
+          <!--Profile-->
+          <a class="button" href="<%= app.platform.api.authorlink(author.address.toString('hex')) %>">
+            <span><%= e('rprofile') %></span>
+          </a>
+          <% if(!isItMe) { %>
+          <!--Subscribe-->
+          <a class="button filled" href="#">
+            <i class="fa fa-user-plus"></i>
+            <span><%= e('sub') %></span>
+          </a>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <dl>
+          <dt>Collections</dt>
+          <dd>123</dd>
+          <dt><%= e('followers2') %></dt>
+          <dd><%- deep(author, 'data.subscribers_count') || 0 %></dd>
+        </dl>
+      </div>
+
+      <div class="row">
+        <ul class="tags">
+          <li>@Наука/Технологии</li>
+          <li>@Автомобили/Гонки</li>
+          <li>#Новости</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--Tabs-->
+  <ul class="tabs">
+    <li class="active"><a href="">All</a></li>
+    <li><a href="">Posts <span class="counter">32</span></a></li>
+    <li><a href="">Video <span class="counter">12</span></a></li>
+    <li><a href="">Publications <span class="counter">24</span></a></li>
+  </ul>
+
+  <!--List-->
+  <div class="list">
+    <% if(isItMe) { %>
+    <!--Add a collection-->
+    <div class="collection">
+      <a href="#" class="link add">
+        <i class="fa fa-plus"></i>
+        Create a collection
+      </a>
+    </div>
+    <% } %>
+    <div class="collection">
+      <div class="image">
+        <i class="fa fa-window-restore type"></i>
+        <img src="https://i.imgur.com/4dm7j8D.png" />
+      </div>
+      <div class="info">
+        <div class="description">
+          <strong>Samsung / 2020-21</strong>
+          <span>34 publications</span>
+        </div>
+        <a href="#" class="actions">
+          <i class="fa fa-ellipsis-v"></i>
+        </a>
+      </div>
+      <a href="collections?id=123" class="link">Samsung / 2020-21</a>
+    </div>
+  </div>
+</div>

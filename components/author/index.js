@@ -658,6 +658,7 @@ var author = (function(){
 				self.nav.api.load({
 
 					open : true,
+					uid : _el.data('list'),
 					id : 'userslist',
 					el : _el,
 					animation : false,
@@ -734,7 +735,7 @@ var author = (function(){
 							href: '#',
 							inWnd: !0,
 							essenseData: {
-								href: this.href
+							
 							}
 						})
 					});*/
@@ -770,27 +771,20 @@ var author = (function(){
 					)
 				})
 			},
-
-			followers : function(_el, report){
-				/*List of users that following me*/
-				var u = _.map(deep(author, 'data.subscribers') || [], function(a){
-					return a
-				})
-
-				var blocked = deep(author, 'data.blocking') || []
-
-				u = _.filter(u, function(a){
-					return _.indexOf(blocked, a) == -1
-				})
-
-				var e = self.app.localization.e('anofollowers');
-
-				if(self.user.isItMe(author.address)){
-					e = self.app.localization.e('aynofollowers')
-				}
-
-				renders.userslist(_el.find('.list'), u, e, '', function(e, p){
-					if (report) report.module = p;
+			
+			collections: function (_el) {
+				self.shell({
+					name :  'collections',
+					el :   _el,
+					
+					data : {
+						author : author,
+						isItMe : self.user.isItMe(author.address)
+					},
+					
+					animation : false,
+				}, function(p){
+				
 				})
 			},
 
@@ -798,8 +792,8 @@ var author = (function(){
 				/*List of users that I'm following*/
 				self.shell({
 					
-					name :  'following',
-					el :   _el,
+					name : 'following',
+					el : _el,
 					
 					data : {
 						author : author
@@ -808,24 +802,23 @@ var author = (function(){
 					animation : false,
 					
 				}, function(p){
-					var
+					let
 						blocked = deep(author, 'data.blocking') || [],
-						u = _.map(deep(author, 'data.subscribes') || [], function(a){
+						list = _.map(deep(author, 'data.subscribes') || [], function(a){
 							return a.adddress
 						}).filter(function(a){
 							return _.indexOf(blocked, a) === -1
-						})
+						}),
+						following = (() => {
+							const result = [].concat(list);
+							
+							/*Shrink following list to 10 in sidebar*/
+							if (result.length > 10) result.splice(10);
+							
+							return result;
+						})();
 					
-					/*Shrink users list to 10 in sidebar*/
-					if (u.length > 10) u.splice(10);
-					
-					var e = self.app.localization.e('anofollowing');
-					
-					if(self.user.isItMe(author.address)){
-						e = self.app.localization.e('aynofollowing')
-					}
-					
-					renders.userslist(_el.find('.list'), u, e, '', function(e, p){
+					renders.userslist(_el.find('.list'), following, '', '', function(e, p){
 						if (report) report.module = p;
 						
 						_el.find('.btn-show-following').on('click', function(e){
@@ -833,9 +826,76 @@ var author = (function(){
 							
 							self.nav.api.go({
 								open: !0,
-								href: '#',
+								href: 'userslist',
 								inWnd: !0,
-								essenseData: {}
+								wnd: {
+									class: 'search',
+									header: `${ self.app.localization.e('following2') }<span class="counter">${ deep(author, 'data.subscribes_count') || 0 }</span>`
+								},
+								essenseData: {
+									addresses : list,
+									empty : '',
+									caption : '',
+									sort : 'commonuserrelation',
+									search: true
+								}
+							})
+						})
+					})
+				})
+			},
+			
+			followers : function(_el, report){
+				/*List of users that following me*/
+				self.shell({
+					
+					name : 'followers',
+					el : _el,
+					
+					data : {
+						author : author
+					},
+					
+					animation : false,
+					
+				}, function(p){
+					let
+						blocked = deep(author, 'data.blocking') || [],
+						list = _.map(deep(author, 'data.subscribers') || [], function(a){
+							return a.adddress
+						}).filter(function(a){
+							return _.indexOf(blocked, a) === -1
+						}),
+						followers = (() => {
+							const result = [].concat(list);
+							
+							/*Shrink followers list to 10 in sidebar*/
+							if (result.length > 10) result.splice(10);
+							
+							return result;
+						})();
+					
+					renders.userslist(_el.find('.list'), followers, '', '', function(e, p){
+						if (report) report.module = p;
+						
+						_el.find('.btn-show-followers').on('click', function(e){
+							e.preventDefault();
+							
+							self.nav.api.go({
+								open: !0,
+								href: 'userslist',
+								inWnd: !0,
+								wnd: {
+									class: 'search',
+									header: `${ self.app.localization.e('followers2') }<span class="counter">${ deep(author, 'data.subscribers_count') || 0 }</span>`
+								},
+								essenseData: {
+									addresses : list,
+									empty : '',
+									caption : '',
+									sort : 'commonuserrelation',
+									search: true
+								}
 							})
 						})
 					})
@@ -1377,10 +1437,11 @@ var author = (function(){
 			
 			renders.info(el.info)
 			renders.about(el.about)
+			renders.collections(el.collections)
 			
 			if(!isTablet()) {
 				renders.following(el.following)
-				// renders.followers(el.followers)
+				renders.followers(el.followers)
 			}
 		}
 
@@ -1538,6 +1599,7 @@ var author = (function(){
 					self.loadTemplate({ name: 'authorcaption' }),
 					self.loadTemplate({ name: 'info' }),
 					self.loadTemplate({ name: 'about' }),
+					self.loadTemplate({ name: 'collections' }),
 					self.loadTemplate({ name: 'following' }),
 					self.loadTemplate({ name: 'followers' })
 				]).then(() => {
@@ -1598,6 +1660,7 @@ var author = (function(){
 				el.contents = el.c.find('.contentswrapper')
 				el.info = el.c.find('.authorinfoWrapper')
 				el.about = el.c.find('.authoraboutWrapper')
+				el.collections = el.c.find('.collectionsWrapper')
 				el.following = el.c.find('.followingWrapper')
 				el.followers = el.c.find('.followersWrapper')
 				el.authorcaption = el.c.find('.bgCaptionWrapper')

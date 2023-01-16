@@ -1,0 +1,88 @@
+<div id="add-collection" style="--step: 1">
+  <form class="collections-holder" action="#">
+    <div class="progress">
+      <div class="value"></div>
+    </div>
+    <div class="steps">
+      <ul>
+        <!--STEP1-->
+        <li>
+          <div class="row">
+            <input type="text" placeholder="Title (Required)">
+          </div>
+
+          <div class="row">
+            <label>Choose a collection content format (Required)</label>
+            <div class="buttons">
+              <div class="type">
+                <input type="radio" name="type" value="posts" checked>
+                <button>
+                <span class="icon">
+                  <i class="fa fa-window-restore"></i>
+                </span>
+                  Posts
+                </button>
+              </div>
+              <div class="type">
+                <input type="radio" name="type" value="video">
+                <button>
+                <span class="icon">
+                  <i class="fa fa-video"></i>
+                </span>
+                  Video
+                </button>
+              </div>
+              <div class="type">
+                <input type="radio" name="type" value="article">
+                <button>
+                <span class="icon">
+                  <i class="fa fa-quote-left"></i>
+                </span>
+                  Publications
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label>Collection cover</label>
+            <p>We recommend using an image that is at least 800 pixels wide by 320 pixels high. Use files in .jpg, .png
+              format (less than 20 MB in size).</p>
+            <div class="image-holder">
+              <img/>
+            </div>
+            <div class="file">
+              <label>
+                <input type="file" name="cover" accept="image/*" />
+              </label>
+              <span class="upload">
+                <i class="fa fa-download"></i>
+                Select image
+              </span>
+              <span class="remove">
+                Remove image
+              </span>
+            </div>
+          </div>
+        </li>
+        <!--STEP2-->
+        <li>
+          <p>Select the posts you want to add to the collection</p>
+          <div class="row">
+            <input type="text">
+          </div>
+          <div class="posts-list"></div>
+        </li>
+      </ul>
+    </div>
+  </form>
+  <div class="navigation">
+    <button class="button transparent back">Back</button>
+    <div>
+      <a class="selected" href="#">
+        Selected: <span class="counter">3</span>
+      </a>
+      <button class="button continue">Continue</button>
+    </div>
+  </div>
+</div>

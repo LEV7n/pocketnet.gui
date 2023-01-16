@@ -1,6 +1,9 @@
 #author {
   /*Author info*/
   /*Author about*/
+  /*Author menu*/
+  /*Author collections*/
+  /*Author following list*/
 }
 #author .rightchatspacer {
   height: 100%;
@@ -21,17 +24,46 @@
 #author .mobileinfo .item.name {
   display: none;
 }
-#author .copyaddress {
-  cursor: pointer;
+#author .address {
+  cursor: default;
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#author .copyaddress {
+  font-size: 1.4em;
+  text-align: center;
+  position: relative;
+}
+#author .copyaddress .address {
+  display: none;
+}
+#author .copyaddress i {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  cursor: pointer;
+  position: absolute;
+  top: -0.7em;
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+#author .copyaddress i:hover {
+  color: #00A4FF;
+  /*CHANGE TO THEME COLOR*/
+}
 #author .newsharewrapper {
   border-radius: 12px;
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
   box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.08);
   background: rgb(var(--background-total-theme));
   margin-top: 1.1em;
   padding: 0.8em 1.1em;
+}
+#author .newsharewrapper:empty {
+  display: none;
 }
 #author .authorlentawrappermain {
   position: relative;
@@ -56,10 +88,12 @@
 }
 #author .authorlentawrappermain .authorsearchwrapper {
   background: rgb(var(--background-total-theme));
-  padding: 0.25em 0.5em;
-  border-right: 3px;
-  margin-top: 1.1em;
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
   border-radius: 12px 12px 0 0;
+  border-width: 1px 1px 0;
+  padding: 0.25em 0.5em;
+  margin-top: 1.1em;
   filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.08));
 }
 #author .authorlentawrappermain .authorsearchwrapper .tabs {
@@ -69,7 +103,8 @@
   align-items: center;
   font-size: 1.1em;
   list-style: none;
-  margin: -0.25em -0.5em 0 -0.5em;
+  margin: -0.25em calc(-1 * 0.5em + 1px);
+  margin-bottom: 0;
   padding: 0 0.5em;
 }
 #author .authorlentawrappermain .authorsearchwrapper .tabs li {
@@ -111,7 +146,14 @@
 }
 #author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .share:first-child,
 #author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .loader {
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
   border-radius: 0 0 12px 12px;
+  border-width: 0 1px 1px;
+}
+#author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .share {
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
 }
 #author .authorlentawrappermain .authorsearchwrapper .search .searchPanel {
   background: transparent;
@@ -242,13 +284,15 @@
 }
 #author .pane {
   background: #fff;
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
   border-radius: 12px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  font-size: 1em;
+  font-size: 0.95em;
   margin-bottom: 1.25em;
   padding: 1.25em;
 }
@@ -259,7 +303,7 @@
 }
 #author .pane .heading {
   display: block;
-  font-size: 1.07em;
+  font-size: 1.125em;
   font-weight: 600;
   text-align: left;
 }
@@ -267,6 +311,60 @@
   color: #8E90A6;
   /*CHANGE TO THEME COLOR*/
   font-weight: normal;
+}
+#author .pane .items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#author .pane .item:not(:last-child) {
+  margin-bottom: 1em;
+}
+#author .pane .table i[class^="fa"] {
+  color: #555770;
+  /*CHANGE TO THEME COLOR*/
+  margin-right: 2px;
+}
+#author .pane .table i[class^="fa"] + * {
+  color: #555770;
+  /*CHANGE TO THEME COLOR*/
+  text-decoration: none;
+}
+#author .pane .table i[class^="fa"] + a[elementsid]:hover {
+  text-decoration: underline;
+}
+#author .pane .table .icon + * {
+  text-align: right;
+}
+#author .pane .table .icon + .value {
+  color: #555770;
+}
+#author .pane .bordered {
+  border-bottom: 1px solid #F3F3F2;
+  padding-bottom: 1em;
+}
+#author .pane .list {
+  padding: 0 0 0.5em;
+  width: 100%;
+}
+#author .pane .list .users {
+  display: grid;
+  grid-gap: 0.75em;
+  grid-template-columns: repeat(auto-fill, 45px);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+#author .pane .list .users .user {
+  margin: 0;
+  padding: 0;
+}
+#author .pane .list .users .user .usericon {
+  margin: 0 auto;
+}
+#author .pane .list + .buttons {
+  margin: 1em 0 0;
 }
 #author .pane .buttons {
   display: flex;
@@ -297,6 +395,7 @@
 }
 #author .pane .button:hover {
   background: rgb(var(--color-bg-ac-bright));
+  border: 1px solid rgb(var(--color-bg-ac-bright));
   color: rgb(var(--text-on-bg-ac-color));
 }
 #author .pane .button:hover i[class^="fa"] {
@@ -311,10 +410,33 @@
 }
 #author .pane .button i[class^="fa"] {
   color: #555770;
+  /*CHANGE TO THEME COLOR*/
 }
 #author .pane .button i[class^="fa"] + .label {
   font-style: normal;
   margin-left: 0.5em;
+}
+#author .pane .link {
+  color: #00A4FF;
+  /*CHANGE TO THEME COLOR*/
+  cursor: pointer;
+}
+#author .pane .link:hover {
+  text-decoration: underline;
+}
+#author .pane .userslist {
+  background: transparent;
+  padding: 0;
+}
+#author .pane .userslist .caption,
+#author .pane .userslist .label,
+#author .pane .userslist .extra {
+  display: none;
+}
+#author .pane .addressTable {
+  display: block;
+  height: auto;
+  width: auto;
 }
 #author .authorinfo {
   align-items: center;
@@ -411,61 +533,157 @@
   text-decoration: underline;
 }
 #author .authorabout .description {
-  border-bottom: 1px solid #F3F3F2;
-  /*CHANGE TO THEME COLOR*/
-  padding-bottom: 1em;
+  margin: 0;
+  white-space: pre-line;
   width: 100%;
+}
+#author .authorabout .description a {
+  color: #00A4FF;
+  /*CHANGE TO THEME COLOR*/
+}
+#author .authorabout .description a:hover {
+  text-decoration: underline;
+}
+#author .authorabout .description.collapsed {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#author .authorabout .collapsible {
+  overflow: hidden;
+  -moz-transition: height 0.3s;
+  -o-transition: height 0.3s;
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s;
+}
+#author .authorabout .collapsible.collapsed {
+  height: 0 !important;
+}
+#author .authorabout .items {
+  border-top: 1px solid #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  padding: 1em 0;
 }
 #author .authorabout .links {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-#author .authorabout .table i[class^="fa"] {
-  color: #8E90A6;
+#author .authorabout .wallets {
+  border-bottom: 1px solid #F3F3F2;
   /*CHANGE TO THEME COLOR*/
-  margin-right: 2px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1em;
+  padding: 0 0 0 3em;
+  position: relative;
 }
-#author .authorabout .table i[class^="fa"] + * {
+#author .authorabout .wallets dd {
   color: #555770;
   /*CHANGE TO THEME COLOR*/
+  display: grid;
+  font-size: 0.85em;
+  grid-template-columns: 80% 20%;
+  margin: 0 0 1em;
 }
-#author .authorabout .table i[class^="fa"] + a:hover {
-  text-decoration: underline;
+#author .authorabout .wallets dd .icon {
+  color: #000;
+  position: absolute;
+  left: 0;
+  margin-top: -1.5em;
+  height: 3em;
+  width: 3em;
 }
-#author .authorabout .table .icon + * {
-  text-align: right;
+#author .authorabout .wallets dd .icon i {
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
-#author .authorabout > .item:not(:last-child) {
-  margin-bottom: 1em;
+#author .authorabout .wallets dd .icon .pocketcoin {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgZmlsbD0iIzAwMDAwMCIKICAgdmlld0JveD0iMCAwIDUwIDUwIgogICB3aWR0aD0iNTAiCiAgIGhlaWdodD0iNTAiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzQiCiAgIHNvZGlwb2RpOmRvY25hbWU9Imljb25zOC1saXRlY29pbi5zdmciCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczgiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXc2IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6c2hvd3BhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlY2hlY2tlcmJvYXJkPSIwIgogICAgIGlua3NjYXBlOmRlc2tjb2xvcj0iI2QxZDFkMSIKICAgICBzaG93Z3JpZD0iZmFsc2UiCiAgICAgaW5rc2NhcGU6em9vbT0iMTQuODYiCiAgICAgaW5rc2NhcGU6Y3g9IjI3LjA4NjEzNyIKICAgICBpbmtzY2FwZTpjeT0iMjYuMTEwMzYzIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDExIgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSI0MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzQiIC8+CiAgPHBhdGgKICAgICBkPSJNIDI1LDIgQyAxMi4zMTcsMiAyLDEyLjMxNyAyLDI1IDIsMzcuNjgzIDEyLjMxNyw0OCAyNSw0OCAzNy42ODMsNDggNDgsMzcuNjgzIDQ4LDI1IDQ4LDEyLjMxNyAzNy42ODMsMiAyNSwyIFogbSA5LDM1IEggMTYuNjgyIEwgMTkuNjUsMjYuNDAxIDE1LjMzNywyNy45NDIgQyAxNS4yMjYsMjcuOTgxIDE1LjExMSwyOCAxNSwyOCBjIC0wLjQxMSwwIC0wLjc5NiwtMC4yNTUgLTAuOTQxLC0wLjY2NCAtMC4xODcsLTAuNTIgMC4wODUsLTEuMDkyIDAuNjA1LC0xLjI3NyBsIDUuNjQ2LC0yLjAxNiAzLjcyNywtMTMuMzEyIGMgMC4xNSwtMC41MzIgMC43MDgsLTAuODQxIDEuMjMyLC0wLjY5MyAwLjUzMiwwLjE0OCAwLjg0MywwLjcwMSAwLjY5MywxLjIzMiBsIC0zLjM0NiwxMS45NDkgNi4wNDcsLTIuMTYgYyAwLjUxOCwtMC4xODggMS4wOTIsMC4wODUgMS4yNzcsMC42MDUgMC4xODcsMC41MiAtMC4wODUsMS4wOTIgLTAuNjA1LDEuMjc3IEwgMjEuOTU2LDI1LjU3NiAxOS4zMTgsMzUgSCAzNCBjIDAuNTUzLDAgMSwwLjQ0NyAxLDEgMCwwLjU1MyAtMC40NDcsMSAtMSwxIHoiCiAgICAgaWQ9InBhdGgyIiAvPgogIDxnCiAgICAgaWQ9ImcyMTkxIj4KICAgIDxlbGxpcHNlCiAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZmZmZmZmO3N0cm9rZS13aWR0aDozLjY2MzYyO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxO3BhaW50LW9yZGVyOnN0cm9rZSBtYXJrZXJzIGZpbGwiCiAgICAgICBpZD0icGF0aDEyODQiCiAgICAgICBjeD0iMjQuOTgwNDc4IgogICAgICAgY3k9IjI0Ljk0NjA0NSIKICAgICAgIHJ4PSIxMy4xNjgxODkiCiAgICAgICByeT0iMTMuMTY4MTg4IiAvPgogICAgPHJlY3QKICAgICAgIHN0eWxlPSJmaWxsOiNmZmZmZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiNmZmZmZmY7c3Ryb2tlLXdpZHRoOjEuOTExMjtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgICAgaWQ9InJlY3QxOTYyIgogICAgICAgd2lkdGg9IjEuMDg4Nzk1OSIKICAgICAgIGhlaWdodD0iMzQuODQ4NjI5IgogICAgICAgeD0iLTAuOTU4OTExMTIiCiAgICAgICB5PSIxOC4xMDE3MjMiCiAgICAgICB0cmFuc2Zvcm09InJvdGF0ZSgtNDUuMTE1NDI2KSIgLz4KICAgIDxyZWN0CiAgICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojZmZmZmZmO3N0cm9rZS13aWR0aDoxLjkxMTI7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6c3Ryb2tlIG1hcmtlcnMgZmlsbCIKICAgICAgIGlkPSJyZWN0MTk2Mi0zIgogICAgICAgd2lkdGg9IjEuMDg4Nzk1OSIKICAgICAgIGhlaWdodD0iMzQuODQ4NjI5IgogICAgICAgeD0iLTM2LjA0OTg1OCIKICAgICAgIHk9Ii0xNy4yMDk3ODIiCiAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgtMC43MDU2ODA4NCwtMC43MDg1Mjk4NiwtMC43MDg1Mjk4NiwwLjcwNTY4MDg0LDAsMCkiIC8+CiAgPC9nPgogIDxlbGxpcHNlCiAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO2ZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS45NTc5NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpzdHJva2UgbWFya2VycyBmaWxsIgogICAgIGlkPSJwYXRoMjE2NiIKICAgICBjeD0iMjQuOTk2OTAxIgogICAgIGN5PSIyNC45NjYxODgiCiAgICAgcng9IjEwLjQzNzYyIgogICAgIHJ5PSIxMC40MTk3ODkiIC8+Cjwvc3ZnPgo=);
 }
-#author .authorfollowing #userslist {
-  background: transparent;
-  padding: 0;
+#author .authorabout .wallets dd .icon .bitcoin {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNjQgNjQiIHdpZHRoPSI1MHB4IiBoZWlnaHQ9IjUwcHgiPjxwYXRoIGQ9Ik0gMzIgNCBDIDE2LjU2MSA0IDQgMTYuNTYxIDQgMzIgQyA0IDQ3LjQzOSAxNi41NjEgNjAgMzIgNjAgQyA0Ny40MzkgNjAgNjAgNDcuNDM5IDYwIDMyIEMgNjAgMTYuNTYxIDQ3LjQzOSA0IDMyIDQgeiBNIDI1IDE3IEwgMjkgMTcgTCAyOSAyMCBMIDI5LjY3MTg3NSAyMCBMIDI5LjY3MTg3NSAyMC4wMDE5NTMgTCAzMi4wOTM3NSAyMC4wMDE5NTMgQyAzMi40MTI3NSAyMC4wMDE5NTMgMzIuNzEwMDQ3IDIwLjAwNzYyNSAzMi45OTgwNDcgMjAuMDE1NjI1IEwgMzIuOTk4MDQ3IDE3IEwgMzYuOTk4MDQ3IDE3IEwgMzYuOTk4MDQ3IDIwLjU1MDc4MSBDIDM3Ljc0NzA0NyAyMC43Nzg3ODEgMzguMTgyMjE5IDIxLjAzNDUxNiAzOC40NDkyMTkgMjEuMjI4NTE2IEMgMzkuMTQ4MjE5IDIxLjczMDUxNiAzOS43MzAzNTkgMjIuMzk5Mzc1IDQwLjE5MzM1OSAyMy4yMzQzNzUgQyA0MC42NTYzNTkgMjQuMDY5Mzc1IDQwLjg4ODY3MiAyNS4wMDU5NjkgNDAuODg4NjcyIDI2LjA0Mjk2OSBDIDQwLjg4ODY3MiAyNy4xNjY5NjkgNDAuNjAyMjUgMjguMTk3NzE5IDQwLjAzMTI1IDI5LjEzNjcxOSBDIDM5LjQ2MDI1IDMwLjA3NTcxOSAzOC42ODc5MzggMzAuNzc5MDQ3IDM3LjcxMDkzOCAzMS4yNDgwNDcgQyAzOS4wODg5MzggMzEuNjc0MDQ3IDQwLjE0ODY3MiAzMi4zOTk3ODEgNDAuODg4NjcyIDMzLjQyNTc4MSBDIDQxLjYzMDY3MiAzNC40NTA3ODEgNDIgMzUuNjU2OTY5IDQyIDM3LjA0Mjk2OSBDIDQyIDM4LjEzNDk2OSA0MS43NjEyMDMgMzkuMTk2NTE2IDQxLjI4MzIwMyA0MC4yMjg1MTYgQyA0MC44MDUyMDMgNDEuMjU5NTE2IDM5LjkyMjEyNSA0Mi4wOTcxMjUgMzkuMDc4MTI1IDQyLjcwMzEyNSBDIDM4LjU0NDEyNSA0My4wODcxMjUgMzcuODcyIDQzLjM4NDY1NiAzNyA0My41OTc2NTYgTCAzNyA0NyBMIDMzIDQ3IEwgMzMgNDMuOTgyNDIyIEMgMzIuOTc1IDQzLjk4MjQyMiAzMi45NTI3MzQgNDMuOTg0Mzc1IDMyLjkyNzczNCA0My45ODQzNzUgQyAzMi4zNTU3MzQgNDMuOTg0Mzc1IDMxLjcxMzQ4NCA0My45OTcwNDcgMzEuMDIxNDg0IDQzLjk5ODA0NyBMIDI5IDQzLjk5ODA0NyBMIDI5IDQ2Ljk5ODA0NyBMIDI1IDQ2Ljk5ODA0NyBMIDI1IDQzLjk5ODA0NyBMIDIzIDQzLjk5ODA0NyBMIDIzIDIwLjAwMTk1MyBMIDI1IDIwLjAwMTk1MyBMIDI1IDE3IHogTSAyNyAyNCBMIDI3IDMwIEwgMzQgMzAgQyAzNS42NTcgMzAgMzcgMjguNjU3IDM3IDI3IEMgMzcgMjUuMzQzIDM1LjY1NyAyNCAzNCAyNCBMIDI3IDI0IHogTSAyNyAzNCBMIDI3IDQwIEwgMzUgNDAgQyAzNi42NTcgNDAgMzggMzguNjU3IDM4IDM3IEMgMzggMzUuMzQzIDM2LjY1NyAzNCAzNSAzNCBMIDI3IDM0IHoiLz48L3N2Zz4=);
 }
-#author .authorfollowing .users {
+#author .authorabout .wallets dd .icon .litecoin {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MHB4IiBoZWlnaHQ9IjUwcHgiPiAgICA8cGF0aCBkPSJNMjUsMkMxMi4zMTcsMiwyLDEyLjMxNywyLDI1czEwLjMxNywyMywyMywyM3MyMy0xMC4zMTcsMjMtMjNTMzcuNjgzLDIsMjUsMnogTTM0LDM3SDE2LjY4MmwyLjk2OC0xMC41OTlsLTQuMzEzLDEuNTQxIEMxNS4yMjYsMjcuOTgxLDE1LjExMSwyOCwxNSwyOGMtMC40MTEsMC0wLjc5Ni0wLjI1NS0wLjk0MS0wLjY2NGMtMC4xODctMC41MiwwLjA4NS0xLjA5MiwwLjYwNS0xLjI3N2w1LjY0Ni0yLjAxNmwzLjcyNy0xMy4zMTIgYzAuMTUtMC41MzIsMC43MDgtMC44NDEsMS4yMzItMC42OTNjMC41MzIsMC4xNDgsMC44NDMsMC43MDEsMC42OTMsMS4yMzJsLTMuMzQ2LDExLjk0OWw2LjA0Ny0yLjE2IGMwLjUxOC0wLjE4OCwxLjA5MiwwLjA4NSwxLjI3NywwLjYwNWMwLjE4NywwLjUyLTAuMDg1LDEuMDkyLTAuNjA1LDEuMjc3bC03LjM3OSwyLjYzNUwxOS4zMTgsMzVIMzRjMC41NTMsMCwxLDAuNDQ3LDEsMSBTMzQuNTUzLDM3LDM0LDM3eiIvPjwvc3ZnPg==);
+}
+#author .authorabout .wallets dd .icon .monero {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+PHN2ZyBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MHB4IiBoZWlnaHQ9IjUwcHgiPiAgICA8cGF0aCBkPSJNIDI1IDIgQyAxMi4zMTcgMiAyIDEyLjMxNyAyIDI1IEMgMiAyNy4zNzkgMi4zNzg1MTU2IDI5LjcyOTA0NyAzLjEwMzUxNTYgMzEuOTk4MDQ3IEwgMTEgMzEuOTk4MDQ3IEwgMTEgMTQuOTk4MDQ3IEwgMjUgMjkuMTc3NzM0IEwgMzkgMTQuOTk4MDQ3IEwgMzkgMzEuOTk4MDQ3IEwgNDYuODk2NDg0IDMxLjk5ODA0NyBDIDQ3LjYyMTQ4NCAyOS43MjkwNDcgNDggMjcuMzc5IDQ4IDI1IEMgNDggMTIuMzE3IDM3LjY4MyAyIDI1IDIgeiBNIDE1IDI0Ljc0MjE4OCBMIDE1IDM1Ljk5ODA0NyBMIDQuNzk0OTIxOSAzNS45OTgwNDcgTCA1LjA4NTkzNzUgMzYuNSBDIDkuMTg4OTM3NSA0My41OTQgMTYuODIgNDggMjUgNDggQyAzMy4xOCA0OCA0MC44MTEwNjIgNDMuNTk0IDQ0LjkxNDA2MiAzNi41IEwgNDUuMjA1MDc4IDM1Ljk5ODA0NyBMIDM1IDM1Ljk5ODA0NyBMIDM1IDI0Ljc0MjE4OCBMIDI1IDM0Ljg2OTE0MSBMIDE1IDI0Ljc0MjE4OCB6Ii8+PC9zdmc+);
+}
+#author .authormenu {
+  font-weight: 600;
+}
+#author .authormenu .icon {
+  position: relative;
+}
+#author .authormenu .icon i[class^="fa"] {
+  font-size: 1.05em;
+  position: absolute;
+  top: 3px;
+  margin: 0;
+  text-align: center;
+  min-width: 20px;
+}
+#author .authormenu .icon i[class^="fa"] + * {
+  margin-left: 2em;
+}
+#author .authormenu .icon .link:hover {
+  color: rgb(var(--color-txt-ac));
+}
+#author .authorcollections .collection .image {
+  margin: 0 0 1em;
+}
+#author .authorcollections .collection .image img {
+  width: 100%;
+}
+#author .authorcollections .collection .info {
+  display: flex;
+  justify-content: space-between;
+}
+#author .authorcollections .collection .info .description {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 0 1em;
-  padding: 0.5em 0 0;
 }
-#author .authorfollowing .users .wrk:not(:first-child) {
-  margin-left: 1em;
+#author .authorcollections .collection .info .description .icon {
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
+  border-radius: 10px;
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  display: inline-block;
+  text-align: center;
+  padding: 0.5em;
+  width: 36px;
 }
-#author .authorfollowing .users .wrk:not(:first-child) .user {
-  margin: 0;
-  padding: 0;
+#author .authorcollections .collection .info .description .title {
+  display: flex;
+  font-weight: bold;
+  flex-direction: column;
+  padding: 0 0.5em;
 }
-#author .authorfollowing .addressTable {
-  display: block;
-  height: auto;
-  width: auto;
+#author .authorcollections .collection .info .description .title span {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  font-size: 0.9em;
+  font-weight: normal;
 }
-#author .authorfollowing .caption,
-#author .authorfollowing .label,
-#author .authorfollowing .extra {
-  display: none;
+#author .authorcollections .collection .actions {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 0.5em;
+  -moz-transition: color 0.25s;
+  -o-transition: color 0.25s;
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+#author .authorcollections .collection .actions:hover {
+  color: #000;
 }
 #author .lentaWrapper {
   min-height: 700px;
@@ -754,7 +972,7 @@ html.mobileview #author .bgCaption .middotwrapper {
   display: none;
 }
 html.mobileview #author .leftpanelcell {
-  display: none;
+  /*display: none;*/
 }
 html.mobileview #author .authorlentawrappermain {
   position: relative;
@@ -779,30 +997,38 @@ html.mobileview #author .authorlentawrappermain .authorsearchwrapper .search .se
   #author .bgCaption .caption {
     justify-content: center;
   }
+  #author .authorinfo .avatar {
+    margin-top: -6.5em;
+  }
   #author .mobileinfo {
     display: block;
   }
   #author .lentacell {
-    margin-right: 44px;
+    margin-right: 0;
     margin-left: 0;
+    padding-left: 0;
+    padding-right: 1em;
+  }
+  #author .lentacell .cnt {
+    max-width: none;
   }
   #author .newsharewrapper {
     display: none;
   }
   #author .leftpanelcell {
-    display: none;
-  }
-  #author .lentacell {
-    margin-right: 44px;
-    margin-left: 0;
+    float: none;
+    display: block;
+    width: 100%;
+    margin-top: -2em;
+    padding: 1em;
+    padding-left: 0;
+    padding-bottom: 0;
   }
   #author .work.mwork {
     width: 90%;
   }
   #author .bgCaption {
     margin-bottom: 0;
-    margin-top: 0;
-    height: auto;
     padding-bottom: 2em;
     background: #051b48;
   }
@@ -920,6 +1146,9 @@ html.mobileview #author .authorlentawrappermain .authorsearchwrapper .search .se
   #author .newsharewrapper {
     display: none;
   }
+  #author .leftpanelcell {
+    z-index: 20;
+  }
   html.allcontent #author .bgCaption {
     padding-top: 44px;
   }
@@ -949,15 +1178,15 @@ html.mobileview #author .authorlentawrappermain .authorsearchwrapper .search .se
   #author .lentaWrapper {
     min-height: 0;
   }
-  #author .lentacell {
-    margin-right: 0;
-    margin-left: 0;
-  }
   #author .leftpanelcell {
-    float: none;
-    display: none;
-    width: 100%;
-    padding: 1em;
+    /*float: none;
+			display: block;
+			width : 100%;
+			margin-top: -4 * @rhythm;
+			padding : 2 * @rhythm;
+			padding-left: 0;
+			padding-bottom: 0;
+			z-index: 20;*/
   }
   #author .leftpanelcell .authorinfo .itemtable > div {
     vertical-align: middle;
@@ -967,6 +1196,9 @@ html.mobileview #author .authorlentawrappermain .authorsearchwrapper .search .se
   }
   #author .leftpanelcell .authorinfo .item:nth-last-child(1) {
     margin-bottom: 0;
+  }
+  #author .lentacell .cnt {
+    margin: 0;
   }
   #author .mainpanelcell {
     display: none;

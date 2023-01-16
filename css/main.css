@@ -2450,34 +2450,43 @@ input[type=radio].radio:checked + label {
   padding-bottom: 0;
 }
 .wnd .wndheader {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .wnd .wndinner > div.buttons {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 .wnd.noheader .wndcontent {
   top: 0;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 .wnd.noheader .wndinner > div.buttons {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 .wnd .wndheader {
+  background: #FAFAFC;
+  /*CHANGE TO THEME COLOR*/
   padding: 0 1em;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   height: 55px;
+  font-size: 1.075em;
   font-weight: 700;
   line-height: 55px;
   overflow: hidden;
   white-space: nowrap;
-  background: rgb(var(--background-total-theme));
+}
+.wnd .wndheader .counter {
+  color: #8E90A6;
+  /*CHANGE TO THEME COLOR*/
+  display: inline-block;
+  margin: 0 0 0 1em;
+  font-weight: normal;
 }
 .wnd .changeStateButtons {
   display: flex;
@@ -4691,7 +4700,7 @@ html.mobileview.fullscreen #navigationWrapper {
   left: 0px;
 }
 .usericon {
-  background: rgb(var(--neutral-grad-0));
+  background: var(--color, rgb(var(--neutral-grad-0)));
   color: rgb(var(--color-txt-gray-dark));
   box-shadow: 0 5px 10px -5px rgba(var(--color-shadow-base), 0.4);
   border-radius: 50%;
@@ -6024,7 +6033,7 @@ html.mobileview #navigation .fakem {
         width : 44px;
         z-index: 999;
         backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);  
+        -webkit-backdrop-filter: blur(14px);
 
         background: rgba(179,220,237,0);
         background: -moz-linear-gradient(top, rgba(179,220,237,0) 0%, rgba(255,255,255,1) 100%);

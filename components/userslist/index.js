@@ -35,7 +35,7 @@ var userslist = (function(){
 
 						self.app.platform.api.actions.unblocking(address, function(tx, error){
 							if(!tx){
-								self.app.platform.errorHandler(error, true)	
+								self.app.platform.errorHandler(error, true)
 							}
 						})
 
@@ -59,11 +59,11 @@ var userslist = (function(){
 						self.app.platform.api.actions.unsubscribe(address, function(tx, err){
 
 							if(tx){
-								
+							
 							}
 							else
 							{
-								self.app.platform.errorHandler(err, true)	
+								self.app.platform.errorHandler(err, true)
 							}
 		
 						})
@@ -114,7 +114,7 @@ var userslist = (function(){
 
 				if (
 
-					(el.c.height() - scnt.scrollTop() < 1000) 
+					(el.c.height() - scnt.scrollTop() < 1000)
 
 					&& !loading && !end) {
 
@@ -201,7 +201,7 @@ var userslist = (function(){
 				if(i >= (page * cnt) && i < ((page + 1) * cnt)){
 					return true;
 				}
-			})	
+			})
 
 			if(newadresses.length){
 
@@ -225,7 +225,7 @@ var userslist = (function(){
 
 			},
 			load : function(){
-				
+			
 			}
 		}
 
@@ -234,13 +234,13 @@ var userslist = (function(){
 			self.app.platform.clbks.api.actions.subscribe.userlist = function(address){
 
 				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').addClass('following')
-				el.c.find('.user[address="'+address+'"] .notificationturn').removeClass('turnon')		
+				el.c.find('.user[address="'+address+'"] .notificationturn').removeClass('turnon')
 			}
 
 			self.app.platform.clbks.api.actions.subscribePrivate.userlist = function(address){
 
-				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').addClass('following')	
-				el.c.find('.user[address="'+address+'"] .notificationturn').addClass('turnon')	
+				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').addClass('following')
+				el.c.find('.user[address="'+address+'"] .notificationturn').addClass('turnon')
 			}
 
 			self.app.platform.clbks.api.actions.unsubscribe.userlist = function(address){
@@ -250,14 +250,14 @@ var userslist = (function(){
 			}
 
 			self.app.platform.clbks.api.actions.blocking.userlist = function(address){
-				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').addClass('blocking')		
-				el.c.find('.user[address="'+address+'"] .notificationturn').removeClass('turnon')			
+				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').addClass('blocking')
+				el.c.find('.user[address="'+address+'"] .notificationturn').removeClass('turnon')
 			}
 
 			self.app.platform.clbks.api.actions.unblocking.userlist = function(address){
 
-				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').removeClass('blocking')				
-				el.c.find('.user[address="'+address+'"]').removeClass('userblocking')	
+				el.c.find('.user[address="'+address+'"] .subscribebuttonstop').removeClass('blocking')
+				el.c.find('.user[address="'+address+'"]').removeClass('userblocking')
 			}
 
 			el.c.on('click', '.subscribe', events.subscribe)
@@ -293,7 +293,7 @@ var userslist = (function(){
 					return -self.app.platform.sdk.users.commonuserpoint(address, me)
 				})
 
-			}	
+			}
 
 			return addresses
 		}
@@ -347,11 +347,11 @@ var userslist = (function(){
 				state.load();
 
 				el = {};
-				el.c = p.el.find('#' + self.map.id);
+				el.c = p.el.find('.' + self.map.id);
 				el.users = el.c.find('.users')
 
 
-				scnt = el.c.closest('.customscroll:not(body)') 
+				scnt = el.c.closest('.customscroll:not(body)')
 				if(!scnt.length) scnt = $(window);
 
 				initEvents();

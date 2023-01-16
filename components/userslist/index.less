@@ -1,6 +1,13 @@
 @import "../../css/__cssvar";
 
-#userslist{
+.wnd{
+	.userslist{
+		display: flex;
+		padding: 0;
+	}
+}
+
+.userslist{
 	padding : 5 * @rhythm;
 	background: rgb(var(--background-total-theme));
 
@@ -30,16 +37,16 @@
 
 			.addressTable{
 				cursor: pointer;
-				
+
 				>div{
-	
+
 					vertical-align: middle;
-	
+
 					&.iconWrapper{
 						width: 45px;
 						text-align: center;
 					}
-	
+
 					&.label{
 						padding-left:  2 * @rhythm;
 						text-overflow: ellipsis;
@@ -49,29 +56,28 @@
 						.cur{
 							color : rgb(var(--color-txt-ac));
 						}
-	
+
 						.name{
 							font-size : 1.2em;
+
+							.reputation{
+								color : rgb(var(--color-txt-ac));
+							}
 						}
 
 						.light{
 							font-size : 0.8em;
-							color : rgb(var(--color-txt-gray-dark));
-
-							.reputation{
-								font-weight: bold;
-								color : rgb(var(--color-txt-ac));
-							}
+							color : #8E90A6; /*CHANGE TO THEME COLOR*/
 						}
 					}
-	
+
 					&.extra{
 						width: 200px;
 						padding-left:  2 * @rhythm;
 						text-align: right;
 					}
 				}
-	
+
 			}
 
 			.blockingWrapper{
@@ -112,24 +118,24 @@
 			}
 
 			&.userblocking{
-	
+
 				.subscribebuttonstop{
 					display: none;
 				}
-	
+
 				.blockingWrapper{
 					display: inline;
 				}
 
-				
+
 			}
-	
+
 			.subscribebuttonstop{
 				.unsubscribe{
 					display : none;
 				}
 
-	
+
 				&.following{
 					.unsubscribe{
 						display : inline;
@@ -138,20 +144,20 @@
 					.notificationturn{
 						display: inline;
 					}
-					
+
 					.subscribe{
 						display : none;
 					}
 				}
 			}
 		}
-		
+
 	}
 }
 
 
 /*t*/ @media only screen and (max-width: 768px){
-	#userslist{
+	.userslist{
 		padding : 2 * @rhythm;
 
 		.caption{

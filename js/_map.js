@@ -19,7 +19,7 @@ var insertingfunc = function(settings, p){
 	}
 }
 
-__map =  { 
+__map =  {
 
 	__vendor : [
 		"js/vendor/device.js", //
@@ -69,7 +69,7 @@ __map =  {
 
 	__sourcesfirst : [
 		"js/vendor/axios.js",
-		"js/vendor/underscore-min.js",  
+		"js/vendor/underscore-min.js",
 		{path : "js/functionsfirst.js", babelify : true},
 		"js/localization.js",
 		//"js/notifications.js",
@@ -177,10 +177,10 @@ __map =  {
 			{src : 'js/vendor/qrscanner.js',			   f : 'js'},
 			{src : 'js/vendor/qrcode.min.js',			   f : 'js', require : function(){
 				QRCode = require('./js/vendor/qrcode.min.js')
-			}},	
+			}},
 
 		],*/
-	},      
+	},
 
 	
 	easynode : {
@@ -197,6 +197,18 @@ __map =  {
 		add : insertingfunc,
 		anonimus : true,
 		electronDontOpen : true
+	},
+	
+	collections : {
+		uri : "collections",
+		href : "collections",
+		add : insertingfunc
+	},
+	
+	addCollection : {
+		uri : "addCollection",
+		href : "addCollection",
+		add : insertingfunc
 	},
 
 	aboutHome : {
@@ -356,7 +368,7 @@ __map =  {
 
 		relations : [
 			/*{src : 'js/vendor/qr/qrscanner.js',			   f : 'js'},*/
-			{src : 'js/validation.js',			   f : 'js'},		
+			{src : 'js/validation.js',			   f : 'js'},
 			/*{src : 'js/vendor/qr/qrcode.min.js',			   f : 'js', require : function(){
 				QRCode = require('./js/vendor/qr/qrcode.min.js')
 			}},	*/
@@ -373,8 +385,8 @@ __map =  {
 		relationsSunc : true,
 
 		relations : [
-				
-			
+		
+		
 		],
 	},
 
@@ -405,7 +417,7 @@ __map =  {
 			electronDontOpen : true,
 			relations : [
 
-				{src : 'js/vendor/exif.js', f : 'js', 
+				{src : 'js/vendor/exif.js', f : 'js',
 
 					require : function(){
 
@@ -443,7 +455,7 @@ __map =  {
 			add : insertingfunc,
 
 			/*relations : [
-				{src : 'js/vendor/ffmpeg.min.js',			   f : 'js'},	
+				{src : 'js/vendor/ffmpeg.min.js',			   f : 'js'},
 			],*/
 
 			
@@ -475,7 +487,7 @@ __map =  {
 			href : "categories",
 			add : insertingfunc,
 			anonimus : true,
-		},	
+		},
 
 		staking : {
 			uri : "staking",
@@ -488,7 +500,7 @@ __map =  {
 			],
 			add : insertingfunc,
 			anonimus : true,
-		},	
+		},
 
 		recommendations : {
 			uri : "recommendations",
@@ -543,7 +555,7 @@ __map =  {
 			add : insertingfunc,
 
 			electronDontOpen : true
-		},	
+		},
 		
 		articlev : {
 			uri : "articlev",
@@ -666,7 +678,7 @@ __map =  {
 			add : insertingfunc,
 
 			relations : [
-				{src : 'js/vendor/exif.js', f : 'js', 
+				{src : 'js/vendor/exif.js', f : 'js',
 
 					require : function(){
 
@@ -674,7 +686,7 @@ __map =  {
 
 				}},
 
-				{src : 'js/vendor/Sortable.min.js', f : 'js', 
+				{src : 'js/vendor/Sortable.min.js', f : 'js',
 
 					require : function(){
 
@@ -682,8 +694,8 @@ __map =  {
 
 				}},
 			
-				{src : 'js/vendor/emojionearea.min.js',			   f : 'js', if : function(){return (typeof _Electron == 'undefined' || _Electron == false)}},	
-				{src : 'js/vendor/emojionearea.min.css',			   f : 'css'},	
+				{src : 'js/vendor/emojionearea.min.js',			   f : 'js', if : function(){return (typeof _Electron == 'undefined' || _Electron == false)}},
+				{src : 'js/vendor/emojionearea.min.css',			   f : 'css'},
 
 		
 			],
@@ -698,7 +710,7 @@ __map =  {
 			},
 
 			relations : [
-				{src : 'js/vendor/exif.js', f : 'js', 
+				{src : 'js/vendor/exif.js', f : 'js',
 
 					require : function(){
 
@@ -706,8 +718,8 @@ __map =  {
 
 				}},
 		
-				{src : 'js/vendor/emojionearea.min.js',			   f : 'js', if : function(){return (typeof _Electron == 'undefined' || _Electron == false)}},	
-				{src : 'js/vendor/emojionearea.min.css',			   f : 'css'},	
+				{src : 'js/vendor/emojionearea.min.js',			   f : 'js', if : function(){return (typeof _Electron == 'undefined' || _Electron == false)}},
+				{src : 'js/vendor/emojionearea.min.css',			   f : 'css'},
 
 		
 			],
@@ -724,7 +736,7 @@ __map =  {
 			},
 			exportcss : true,
 			anonimus : true,
-		},	
+		},
 
 		transactionview : {
 			uri : "transactionview",
@@ -734,7 +746,7 @@ __map =  {
 			},
 			exportcss : true,
 			anonimus : true,
-		},	
+		},
 
 	
 		imageGalleryEdit : {
@@ -866,7 +878,7 @@ __map =  {
 
 			
 			{src : 'js/validation.js',			   f : 'js'},
-			{src : 'js/vendor/qr/qrscanner.js',			   f : 'js'},				
+			{src : 'js/vendor/qr/qrscanner.js',			   f : 'js'},
 			
 		],
 		anonimus : true,
@@ -880,8 +892,8 @@ __map =  {
 		relations : [
 
 		
-			{src : 'js/validation.js',			   f : 'js'},				
-			{src : 'js/vendor/qr/qrscanner.js',			   f : 'js'},	
+			{src : 'js/validation.js',			   f : 'js'},
+			{src : 'js/vendor/qr/qrscanner.js',			   f : 'js'},
 			
 		]
 	},
@@ -966,7 +978,7 @@ __map =  {
 		relations : [
 			{src : 'js/vendor/chart.min.js',			   f : 'js', require : function(){
 				Chart = require('./js/vendor/chart.min.js')
-			}},	
+			}},
 		]
 
 		
@@ -990,7 +1002,7 @@ __map =  {
 		add : insertingfunc,
 
 		relations : [
-			{src : 'js/validation.js',			   f : 'js'},	
+			{src : 'js/validation.js',			   f : 'js'},
 		]
 	},
 
@@ -1000,7 +1012,7 @@ __map =  {
 		add : insertingfunc,
 
 		relations : [
-			{src : 'js/validation.js',			   f : 'js'},	
+			{src : 'js/validation.js',			   f : 'js'},
 		]
 	},
 
