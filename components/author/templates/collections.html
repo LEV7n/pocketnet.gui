@@ -28,6 +28,6 @@
 
   <div class="buttons">
     <!--Show all-->
-    <a href="#" class="btn-show-collections button fit"><%= e('showall') %></a>
+    <a href="collections?author=<%- app.platform.api.authorlink(author.address.toString('hex')) %>" class="btn-show-collections button fit"><%= e('showall') %></a>
   </div>
 </div>

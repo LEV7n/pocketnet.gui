@@ -190,6 +190,68 @@
         }
       }
     }
+
+    .posts-list {
+      padding: 0 2 * @rhythm 0 @rhythm;
+      overflow: hidden;
+      overflow-y: overlay;
+      max-height: 430px;
+    }
+
+    .metapanel,
+    .iconWrapper,
+    .authorCell,
+    .formeta:before,
+    .editedLabel,
+    .shareinlenta.rendered .sharecnt .tags,
+    .sharepanel > div.right,
+    .sharesocial,
+    .shareinlenta.rendered .commentsWrapper #comments .post,
+    .starsWrapper,
+    .sharepanel .itemwr .starswr,
+    .forstars .count .countusers,
+    #comments .list,
+    .shareinlenta.rendered .sharecnt .cntscontent .panel:before,
+    .share_common .statswrapperExtended,
+    .shareinlenta.rendered .commentsWrapper .showall,
+    .share_common .images.manyImagesView .imagesContainer .imagesWrapper:not(:first-child) {
+      display: none;
+    }
+
+    .formeta,
+    .shareinlenta.rendered .sharecnt .formeta,
+    .metawrapper,
+    .unselectablemobile,
+    .postcontent,
+    .share .sharecaption,
+    .share .images,
+    .cntscontent,
+    .shareinlenta.rendered .sharecnt .cntscontent .panel,
+    .shareinlenta.rendered .sharecnt .formeta .metawrapper,
+    .shareinlenta.rendered .sharecnt .post {
+      margin: 0;
+      padding: 0;
+    }
+
+    .forstars .itemwr,
+    .conutdetails {
+      display: block;
+    }
+
+    .shareinlenta.rendered .sharecnt .post {
+      position: relative;
+      padding: 0 0 0 72px;
+    }
+
+    .share_common .images .imagesWrapper,
+    .video-js.vjs-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: transparent;
+      height: 64px !important;
+      width: 64px !important;
+    }
   }
 
   &[style$="step:3;"] {
@@ -229,5 +291,17 @@
         color: #000;
       }
     }
+  }
+
+  .scrollable::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollable::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  .scrollable::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 3px solid #d9d9d9;
   }
 }

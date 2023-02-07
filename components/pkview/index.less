@@ -1,7 +1,7 @@
 @import "../../css/__cssvar";
 
 #pkview{
-    
+
 
     .buttonWrapper{
         padding : 2 * @rhythm;
@@ -17,9 +17,9 @@
             min-width: 140px;
         }
     }
-   
+
     .key{
-        
+
         button{
             text-decoration: none;
         }
@@ -31,7 +31,7 @@
 		.number{
 			border: 1px solid rgb(var(--neutral-grad-2));
         }
-        
+
 
 		.subcaption{
             font-size: 1em;
@@ -45,7 +45,7 @@
                 color : rgb(var(--color-txt-orange));
             }
         }
-        
+
         .pklabel{
             text-align: center;
             font-size: 0.8em;
@@ -73,7 +73,7 @@
                 word-wrap: break-word;
 
 				&.iconWrapper{
-					padding: 15px; 
+					padding: 15px;
                     width: 286px;
                     margin : 0 auto;
 				}
@@ -83,7 +83,7 @@
 				}
 			}
         }
-        
+
         .mnemonicKeyCell{
             margin-top : 4 * @rhythm;
         }
@@ -91,7 +91,7 @@
         .qrcode{
             margin : 0 auto;
         }
-		
+
 
 		.panel{
 			.item{
@@ -103,7 +103,7 @@
 			}
 		}
     }
-    
+
     .dontshowagain{
         position: fixed;
         bottom : -10%;
@@ -126,7 +126,7 @@
             bottom : 2%;
             display: block;
             opacity: 1;
-            
+
 
             &:hover{
                 opacity: 0.8;
@@ -159,7 +159,7 @@
         .work{
             height: 100%;
         }
-        
+
         .abswndwrapper{
             height: 100%;
 
@@ -193,38 +193,50 @@
 }
 
 /*t*/ @media only screen and (max-width: 768px){
-	
+
 
     .wnd.pkviewwnd{
-       
+
         #pkview{
 
             .keywrapper{
                 padding-left: @rhythm;
                 padding-right: @rhythm;
             }
-          
+
             .key{
                 padding : @rhythm;
             }
-           
+
             .mnemonicKey{
                 height: 90px;
             }
 
             .mnemonicKeyTable{
                 >div{
-                  
+
                     &.iconWrapper{
-                        padding: 0; 
+                        padding: 0;
                         width: 100%;
 
                         img{
                             margin : 0 auto;
                         }
                     }
-    
+
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .wnd.pkviewwnd{
+
+        #pkview{
+
+            .mnemonicKey{
+                font-size: 5vw;
             }
         }
     }

@@ -904,6 +904,12 @@ button{
         border: 1px solid rgb(var(--neutral-grad-3));
     }
 
+    &.transparent{
+        background: transparent;
+        border: 1px solid rgb(var(--neutral-grad-2));
+        color : rgb(var(--neutral-grad-3));
+    }
+
     &.bordered{
         background: transparent;
         border: 1px solid rgb(var(--neutral-grad-2));
@@ -993,6 +999,13 @@ button{
             &:hover{
                 opacity : 0.8;
                 color: rgb(var(--text-on-bg-ac-color));
+            }
+        }
+
+        &.transparent{
+            &:hover{
+                background: rgb(var(--neutral-grad-2));
+                color : rgb(var(--text-on-bg-ac-color));
             }
         }
 

@@ -760,6 +760,11 @@ button.gray {
   background: rgb(var(--neutral-grad-3));
   border: 1px solid rgb(var(--neutral-grad-3));
 }
+button.transparent {
+  background: transparent;
+  border: 1px solid rgb(var(--neutral-grad-2));
+  color: rgb(var(--neutral-grad-3));
+}
 button.bordered {
   background: transparent;
   border: 1px solid rgb(var(--neutral-grad-2));
@@ -814,6 +819,10 @@ button.nopadding {
   }
   button.gray:hover {
     opacity: 0.8;
+    color: rgb(var(--text-on-bg-ac-color));
+  }
+  button.transparent:hover {
+    background: rgb(var(--neutral-grad-2));
     color: rgb(var(--text-on-bg-ac-color));
   }
   button.bordered {

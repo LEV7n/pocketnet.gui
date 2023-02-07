@@ -62,13 +62,10 @@
 .userslist .users .user .blockingWrapper {
   display: none;
 }
-.userslist .users .user .subscribebuttonstop i {
-  color: rgb(var(--color-good));
-}
 .userslist .users .user .subscribebuttonstop button {
   font-size: 0.9em;
   font-weight: 100;
-  padding: 0.5em 2em;
+  padding: 0.5em 0.5em;
 }
 .userslist .users .user .subscribebuttonstop .unsubscribe {
   color: rgb(var(--neutral-grad-4));

@@ -1,6 +1,9 @@
 @import "../../css/__cssvar";
 
 #author{
+	.usericon{
+		box-shadow: none;
+	}
 
 	.rightchatspacer{
 		height: 100%;
@@ -12,7 +15,7 @@
 	}
 
 	.authorlentawrapper{
-		/*margin-top : 2.2 * @rhythm;*/
+		margin-top : 2.2 * @rhythm;
 	}
 
 	&.curation{
@@ -65,7 +68,7 @@
 		box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.08);
 		background: rgb(var(--background-total-theme));
 		margin-top : 2.2 * @rhythm;
-		padding: .8em 2.2 * @rhythm;
+		padding: .1em 2.2 * @rhythm;
 
 		&:empty{
 			display: none;
@@ -97,9 +100,8 @@
 		.authorsearchwrapper{
 			background: rgb(var(--background-total-theme));
 			border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
-			border-radius: 12px 12px 0 0;
-			border-width: 1px 1px 0;
-			padding : 0.5 * @rhythm 1 * @rhythm;
+			border-radius: 12px;
+			padding : 0.5 * @rhythm 1 * @rhythm 0;
 			margin-top : 2.2 * @rhythm;
 			filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.08));
 
@@ -109,9 +111,8 @@
 				align-items: center;
 				font-size: 1.1em;
 				list-style: none;
-				margin: -0.5 * @rhythm calc(-1 * @rhythm + 1px);
-				margin-bottom: 0;
-				padding: 0 @rhythm;
+				margin: -0.5 * @rhythm @rhythm 0;
+				padding: 0;
 
 				li{
 					position: relative;
@@ -144,30 +145,32 @@
 						color: #1A1F36; /*CHANGE TO THEME COLOR*/
 						display: block;
 						padding: 2 * @rhythm 2.2 * @rhythm;
+
+						i.fa {
+							margin: 0 @rhythm 0 0;
+						}
 					}
 				}
 			}
 
 			.authorsearch{
 				display: none;
-				border-bottom: 1px solid #F3F3F2;
-				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
 				margin: 0 -1 * @rhythm -0.5 * @rhythm -1 * @rhythm;
 				padding : 0.5 * @rhythm 1 * @rhythm;
 			}
 
-			+ .authorlentawrapper{
+			/*+ .authorlentawrapper{ RMW
 				.share:first-child,
 				.loader{
-					border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
+					border: 1px solid #E3E4EB; !*CHANGE TO THEME COLOR*!
 					border-radius: 0 0 12px 12px;
 					border-width: 0 1px 1px;
 				}
 
 				.share{
-					border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
+					border: 1px solid #E3E4EB; !*CHANGE TO THEME COLOR*!
 				}
-			}
+			}*/
 
 			.search{
 				.searchPanel{
@@ -604,10 +607,14 @@
 		}
 
 		.stat{
+			background: #F3F3F2; /*CHANGE TO THEME COLOR*/
+			border: 1px solid #E2E2E2; /*CHANGE TO THEME COLOR*/
+			border-radius: 12px;
 			display: flex;
 			justify-content: space-evenly;
 			align-items: center;
-			margin: 0 0 3 * @rhythm;
+			margin: 0 3 * @rhythm 3 * @rhythm;
+			padding: 2 * @rhythm;
 			width: 100%;
 
 			i[class^="fa"]{
@@ -1642,5 +1649,19 @@ html.mobileview{
 			position: fixed;
 		}
 
+	}
+}
+
+.wnd {
+	&.edit-profile {
+		#test {
+			background: transparent;
+		}
+	}
+
+	&.showall {
+		.wndinner {
+			max-width: 600px;
+		}
 	}
 }

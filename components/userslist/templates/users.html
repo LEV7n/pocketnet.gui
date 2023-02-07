@@ -20,7 +20,9 @@ var telements = function(address){ %>
 
 		<span class="subscribebuttonstop <%-_class%>">
 
-			<span elementsid="unsubscribe" class="unsubscribe funf">&middot; You are Following <i class="far fa-check-circle"></i></span>
+			<span elementsid="unsubscribe" class="unsubscribe funf">
+        <button class="transparent"><%=e('unfollow')%></button>
+      </span>
 
 			<% if (me){
 
@@ -28,12 +30,14 @@ var telements = function(address){ %>
 
 			%>
 
-				<span elementsid="notificationturn" class="notificationturn <% if(r && (r.private == 'true' || r.private === true)) {%> turnon <% } %>">&middot; <i class="far fa-bell-slash"></i></span>
+				<span elementsid="notificationturn" class="notificationturn <% if(r && (r.private == 'true' || r.private === true)) {%> turnon <% } %>">
+          <button class="transparent"><i class="far fa-bell-slash"></i></button>
+        </span>
 
 			<% } %>
 
 			<span elementsid="subscribe" class="subscribe funf">
-				<button><%=e('follow')%></button>
+				<button><i class="fa fa-user-plus"></i> <%=e('follow')%></button>
 			</span>
 
 		</span>
@@ -95,12 +99,12 @@ _.each(addresses, function(address){
 					<a elementsid="userlistauthorlink" href="<%-app.platform.api.authorlink(address)%>">
             <%
             var
-              s = deep(app, 'platform.sdk.users.storage.'+address+'.subscribers_count'),
-              r = deep(app, 'platform.sdk.users.storage.'+address+'.reputation');
+              s = deep(app, 'platform.sdk.usersl.storage.'+address+'.subscribers_count'),
+              r = deep(app, 'platform.sdk.usersl.storage.'+address+'.reputation');
             %>
 
 						<div class="name">
-							<%- app.platform.api.name(address) || address %> <sup class="reputation"><%- r %></sup>
+							<%- app.platform.api.name(address) || address %> <sup class="reputation"><%- compressedNumber(r, 1) %></sup>
 						</div>
 
 						<% if (s) {%>

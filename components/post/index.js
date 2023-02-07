@@ -76,7 +76,7 @@ var post = (function () {
 				if(self.app.playingvideo && !deleted) return
 		
 				renders.share()
-			},	
+			},
 
 			changeSavingStatusLight : function(share){
 
@@ -377,7 +377,7 @@ var post = (function () {
 					button.one('click', function(){
 
 
-						$(this).closest('.jsPlayerLoading').addClass('loading') 
+						$(this).closest('.jsPlayerLoading').addClass('loading')
 						$(this).closest('.js-player-dummy').addClass('js-player-ini')
 
 
@@ -397,7 +397,7 @@ var post = (function () {
 				}
 
 				button = null
-			},	
+			},
 
 			initVideo: function (clbk) {
 
@@ -438,7 +438,7 @@ var post = (function () {
 						volumeChange : function(v){
 							videosVolume = v
 
-							self.sdk.videos.volume = videosVolume 
+							self.sdk.videos.volume = videosVolume
 
 							self.sdk.videos.save()
 						},
@@ -468,10 +468,10 @@ var post = (function () {
 								})
 							}, 300)
 							
-						},	
+						},
 
 						pause : function(){
-							if(!p.pip)	
+							if(!p.pip)
 								self.app.actions.playingvideo(null)
 						},
 
@@ -842,7 +842,7 @@ var post = (function () {
 		var events = {
 			gotouserprofile : function(){
 				var name = $(this).attr('name')
-				var address = $(this).attr('address') 
+				var address = $(this).attr('address')
 
 				self.nav.api.load({
 					open : true,
@@ -867,7 +867,7 @@ var post = (function () {
 					href : 'authorization',
 					history : true,
 					open : true
-				})	
+				})
 			
 			},
 			
@@ -1223,7 +1223,7 @@ var post = (function () {
 										if (w > imageswidth){
 											w = imageswidth
 
-											h = w * ( _img.height / _img.width) 
+											h = w * ( _img.height / _img.width)
 
 											el.height(h);
 										}
@@ -1407,8 +1407,8 @@ var post = (function () {
 											el.share.find('.shareSave').on('click', events.shareSave);
 
 											el.share.find('.piptest').on('click', function(){
-												
-												
+											
+											
 											});
 
 											el.share.find('.toregistration').on('click', events.toregistration)
@@ -1675,6 +1675,14 @@ var post = (function () {
 					if (clbk) clbk();
 				}
 			},
+			
+			stream : function(clbk) {
+				self.app.platform.matrixchat.core.renderChatToElement(el.stream, '')
+					.then(r => console.log(r))
+					.catch(e => console.error(e));
+				
+				if(clbk) clbk();
+			},
 
 			recommendations : function(clbk){
 
@@ -1721,7 +1729,7 @@ var post = (function () {
 
 				}
 				else{
-					
+				
 				}
 			}
 
@@ -1852,6 +1860,7 @@ var post = (function () {
 
 						if (share.itisvideo() && !ed.repost && !p.pip && recommendationsenabled) {
 
+							renders.stream();
 							renders.recommendations();
 
 						}
@@ -1921,7 +1930,7 @@ var post = (function () {
 
 					if (!share) {
 
-						share = self.app.platform.sdk.node.shares.getWithTemp(id) 
+						share = self.app.platform.sdk.node.shares.getWithTemp(id)
 
 						/*var temp = _.find(self.sdk.node.transactions.temp.share, function (s) {
 							return s.txid == id
@@ -2044,6 +2053,7 @@ var post = (function () {
 
 				el = {};
 				el.c = p.el.find('.poctelc');
+				el.stream = el.c.find('.streambgwrapper');
 				el.reco = el.c.find('.recomandationsbgwrapper');
 				el.share = el.c.find('.share');
 				el.wr = el.c.find('.postWrapper')

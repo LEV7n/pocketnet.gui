@@ -59,13 +59,20 @@ var addCollection = (function(){
               console.log(author, _el)
               /*Load posts*/
               self.nav.api.load({
-                open : true,
-                id : 'lenta',
-                el : _el.find('.posts-list'),
-                animation : false,
+                open: true,
+                id: 'lenta',
+                el: _el.find('.posts-list'),
+                animation: false,
                 mid: author.address,
-                essenseData : {
-            
+                essenseData: {
+                  author: author.address,
+                  byauthor: true,
+                  hr: `author?address=${ author.address }`,
+                  optimize: self.app.mobileview,
+                  renderclbk: function() {}
+                },
+                clbk: function(e, p){
+      
                 }
               });
             }

@@ -44,12 +44,22 @@ var collections = (function(){
                 author: author
               }
             })
-          })
+          });
+  
+          _el.find('.list .link').on('click', function (e) {
+            self.nav.api.go();
+            renders.collection(_el);
+            console.log(123);
+          });
         })
       },
       
       collection: function (_el, report) {
+        if (!author) {
+          author = { address: 'PUJjhGLa7KesEa3Ee8K9pi49u1mW9xqQZB' }
+        }
         console.log(_el, author)
+        
         self.shell({
           name :  'collection',
           el :   _el,
@@ -60,13 +70,20 @@ var collections = (function(){
         }, function(p){
           /*Load posts*/
           self.nav.api.load({
-            open : true,
-            id : 'lenta',
-            el : _el.find('.posts-list'),
-            animation : false,
+            open: true,
+            id: 'lenta',
+            el: _el.find('.posts-list'),
+            animation: false,
             mid: author.address,
-            essenseData : {
-      
+            essenseData: {
+              author: author.address,
+              byauthor: true,
+              hr: `author?address=${ author.address }`,
+              optimize: self.app.mobileview,
+              renderclbk: function() {}
+            },
+            clbk: function(e, p){
+            
             }
           });
         })

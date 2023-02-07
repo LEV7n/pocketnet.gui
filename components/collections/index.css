@@ -113,6 +113,7 @@
 }
 #collections-wrapper .buttons {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 0 0 0 1.5em;
 }
@@ -252,7 +253,10 @@
   border-color: rgba(227, 228, 235, 0.25);
 }
 #collections .list .collection .image {
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
   border-radius: 12px;
+  border-width: 0 0 1px 0;
   margin: 0;
   position: relative;
   overflow: hidden;
@@ -274,6 +278,8 @@
   transition: all 0.25s;
 }
 #collections .list .collection .image img {
+  object-fit: cover;
+  max-height: 165px;
   width: 100%;
 }
 #collections .list .collection .info {
@@ -361,34 +367,40 @@
 #collection #collection-content .pane {
   width: 100%;
 }
-#collection #collection-content .pane .image {
-  border: 1px solid #E3E4EB;
-  /*CHANGE TO THEME COLOR*/
-  border-radius: 12px;
-  margin: calc(-2.5 * 0.5em - 1px) calc(-2.5 * 0.5em - 1px) 1.25em;
-  overflow: hidden;
-  height: 1%;
-}
-#collection #collection-content .pane .image img {
-  vertical-align: top;
-  width: 100%;
-}
-#collection #collection-content .pane .heading {
-  width: 100%;
-}
-#collection #collection-content .pane .heading .buttons {
-  margin: 0;
-}
-#collection #collection-content .pane .heading .buttons .button {
-  margin: 0 0 0 0.5em;
-}
 #collection #collection-sidebar {
   padding: 0 0 0 1.5em;
   width: 315px;
 }
 #collection #collection-sidebar .pane {
-  position: fixed;
   width: 315px;
+}
+#collection #collection-sidebar .pane .image {
+  border: 1px solid #E3E4EB;
+  /*CHANGE TO THEME COLOR*/
+  border-radius: 12px;
+  border-width: 0 0 1px 0;
+  margin: calc(-2.5 * 0.5em) calc(-2.5 * 0.5em) 1.25em;
+  overflow: hidden;
+  height: 1%;
+  width: calc(100% + 5 * 0.5em);
+}
+#collection #collection-sidebar .pane .image img {
+  vertical-align: top;
+  object-fit: cover;
+  height: 251px;
+  width: 100%;
+}
+#collection #collection-sidebar .pane .heading {
+  width: 100%;
+}
+#collection #collection-sidebar .pane .heading .buttons {
+  margin: 0;
+}
+#collection #collection-sidebar .pane .heading .buttons .button {
+  margin: 0 0 0 0.5em;
+}
+#collection #collection-sidebar .pane .authorinfo .author .name {
+  margin: 0;
 }
 #collection .pane {
   background: #fff;
@@ -438,21 +450,34 @@
   counter-reset: section;
   cursor: pointer;
   margin: 0;
-  padding: 0 1em 0 0;
+  padding: 0 1em 0 0.5em;
   overflow: hidden;
   overflow-y: overlay;
-  max-height: 392px;
+  max-height: 430px;
   width: calc(100% + 0.5em);
 }
 #collection .pane ol li {
+  background: transparent;
   counter-increment: section;
   content: "";
   display: flex;
   align-items: center;
   list-style: none;
-  padding: 0.5em 0;
+  margin: 0 0 0.5em -0.5em;
+  padding: 0.5em;
+  -moz-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s;
+  transition: background-color 0.25s;
+}
+#collection .pane ol li.active,
+#collection .pane ol li:hover {
+  background: #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  border-radius: 8px;
 }
 #collection .pane ol li img {
+  border-radius: 8px;
   vertical-align: top;
   height: 64px;
   width: 64px;

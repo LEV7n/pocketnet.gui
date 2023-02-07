@@ -37,7 +37,7 @@ var letter = name ? name[0] : '';
     <!--Reputation-->
     <dl>
       <dt><%= e('rstate') %></dt>
-      <dd><i class="fa fa-star"></i> <%- (deep(author, 'state.reputation') || deep(author, 'data.reputation') || 0).toFixed(1) %></dd>
+      <dd><i class="fa fa-star"></i> <%- compressedNumber((deep(author, 'state.reputation') || deep(author, 'data.reputation') || 0), 1) %></dd>
     </dl>
 
     <!--Followers-->
@@ -57,7 +57,7 @@ var letter = name ? name[0] : '';
   <div class="buttons">
     <% if(isItMe) { %>
     <!--Edit profile-->
-    <a class="button fit btn-edit-profile" href="userpage?id=test"><%= e('e13186') %></a>
+    <button class="button fit btn-edit-profile"><%= e('e13186') %></button>
 
     <!--Share-->
     <a class="button" href="#"><i class="fa fa-share-alt"></i></a>

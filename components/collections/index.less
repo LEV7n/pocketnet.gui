@@ -131,6 +131,7 @@
 
   .buttons {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin: 0 0 0 3 * @rhythm;
 
@@ -287,7 +288,9 @@
       }
 
       .image {
+        border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
         border-radius: 12px;
+        border-width: 0 0 1px 0;
         margin: 0;
         position: relative;
         overflow: hidden;
@@ -306,6 +309,8 @@
         }
 
         img {
+          object-fit: cover;
+          max-height: 165px;
           width: 100%;
         }
       }
@@ -397,16 +402,30 @@
 
     .pane {
       width: 100%;
+    }
+  }
+
+  #collection-sidebar {
+    padding: 0 0 0 3 * @rhythm;
+    width: 315px;
+
+    .pane {
+      //position: fixed;
+      width: 315px;
 
       .image{
         border: 1px solid #E3E4EB; /*CHANGE TO THEME COLOR*/
         border-radius: 12px;
-        margin: calc(-2.5 * @rhythm - 1px) calc(-2.5 * @rhythm - 1px) 2.5 * @rhythm;
+        border-width: 0 0 1px 0;
+        margin: calc(-2.5 * @rhythm) calc(-2.5 * @rhythm) 2.5 * @rhythm;
         overflow: hidden;
         height: 1%;
+        width: calc(100% + 5 * @rhythm);
 
         img{
           vertical-align: top;
+          object-fit: cover;
+          height: 251px;
           width: 100%;
         }
       }
@@ -422,16 +441,14 @@
           }
         }
       }
-    }
-  }
 
-  #collection-sidebar {
-    padding: 0 0 0 3 * @rhythm;
-    width: 315px;
-
-    .pane {
-      position: fixed;
-      width: 315px;
+      .authorinfo {
+        .author {
+          .name {
+            margin: 0;
+          }
+        }
+      }
     }
   }
 
@@ -489,21 +506,31 @@
       counter-reset: section;
       cursor: pointer;
       margin: 0;
-      padding: 0 2 * @rhythm 0 0;
+      padding: 0 2 * @rhythm 0 @rhythm;
       overflow: hidden;
       overflow-y: overlay;
-      max-height: 392px;
+      max-height: 430px;
       width: calc(100% + @rhythm);
 
       li {
+        background: transparent;
         counter-increment: section;
         content: "";
         display: flex;
         align-items: center;
         list-style: none;
-        padding: @rhythm 0;
+        margin: 0 0 @rhythm -@rhythm;
+        padding: @rhythm;
+        .transition(.25s, background-color);
+
+        &.active,
+        &:hover {
+          background: #F3F3F2; /*CHANGE TO THEME COLOR*/
+          border-radius: 8px;
+        }
 
         img {
+          border-radius: 8px;
           vertical-align: top;
           height: 64px;
           width: 64px;

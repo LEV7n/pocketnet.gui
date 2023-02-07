@@ -8560,7 +8560,7 @@ Platform = function (app, listofnodes) {
 
                         return self.sdk.sharesObserver.storage.viewed[key].new > 0
                     }
-                }   
+                }
             },
 
             view : function(key, first, last){
@@ -8578,7 +8578,7 @@ Platform = function (app, listofnodes) {
                     self.sdk.sharesObserver.storage.viewed[key].new = 0
 
                 }
-                    
+                
 
                 if (!self.sdk.sharesObserver.storage.viewed[key].last || self.sdk.sharesObserver.storage.viewed[key].last > last)
                     self.sdk.sharesObserver.storage.viewed[key].last = last
@@ -17466,7 +17466,17 @@ Platform = function (app, listofnodes) {
                             /////temp
                             ////
 
-                            var parameters = [Number(p.height), p.txid, p.count, p.lang, p.tagsfilter, p.type ? [p.type] : [], [], [], p.tagsexcluded];
+                            var parameters = [
+                                Number(p.height),
+                                p.txid,
+                                p.count,
+                                p.lang,
+                                p.tagsfilter,
+                                p.type ? [p.type] : [],
+                                [],
+                                [],
+                                p.tagsexcluded
+                            ];
 
                             if(p.author) {
                                 parameters.push('');
@@ -17687,7 +17697,7 @@ Platform = function (app, listofnodes) {
 
                     var n = -1
                     var uservout = _.find(tx.vout, (v) => {
-                        n ++ 
+                        n ++
                         return _.find(deep(v, 'scriptPubKey.addresses') || [], (a) => {
                             return a == address
                         })
@@ -19110,13 +19120,13 @@ Platform = function (app, listofnodes) {
                                 var slicedArr = [];
 
                                 for (var u of arr){
-                                    
+                                   
                                    slicedArr.push({
                                         txId: u.txid,
                                         vout: u.vout,
                                         amount: u.amount,
                                         scriptPubKey: u.scriptPubKey,
-                                    });    
+                                    });
 
                                    if (u.amount > min) break;
 
@@ -19160,7 +19170,7 @@ Platform = function (app, listofnodes) {
                                         if (min >= amountSeveralInputs - slicedInputs[0].amount){
 
                                             break;
-                                        } 
+                                        }
 
                                         amountSeveralInputs -= slicedInputs[0].amount;
                                         slicedInputs = slicedInputs.slice(1);
@@ -26185,7 +26195,7 @@ Platform = function (app, listofnodes) {
                 txid: "65fee9b1e925833c5ff623178efecc436d3af0c9f6a4baa0b73c52907a9d1d7b"
             })*/
 
-            // test coin 
+            // test coin
 
             //self.messageHandler({"addr":"TSVui5YmA3JNYvSjGK23Y2S8Rckb2eV3kn","msg":"transaction","txid":"a6819e0de29c148a193932da4581b79cae02163f717962a86ccbf259f915a4be","time":1657701744,"amount":"1000000","nout":"2","node":"116.203.219.28:39091:6067"})
 
@@ -27802,7 +27812,7 @@ Platform = function (app, listofnodes) {
                                     privatekey="${privatekey}"
                                     pocketnet="`+( self.app.mobileview ? '' : 'true')+`"
                                     recording="true"
-                                    mobile="`+( self.app.mobileview ? 'true' : '')+`" 
+                                    mobile="`+( self.app.mobileview ? 'true' : '')+`"
                                     ctheme="`+self.sdk.theme.current+`"
                                     localization="`+self.app.localization.key+`"
                                     fcmtoken="`+(self.fcmtoken || "")+`"
@@ -28417,7 +28427,7 @@ Platform = function (app, listofnodes) {
                     self.app.mobile.pip.enable(self.app.pipwindow.el)
                 }
                 else{
-                    
+                
                 }
 
             }, 200)
@@ -28464,7 +28474,7 @@ Platform = function (app, listofnodes) {
                         if (self.focus) return
         
                         if (self.app.pipwindow && self.app.pipwindow.playerstatus && self.app.pipwindow.playerstatus() == 'playing'){
-                           
+                        
                         }
                         else{
                             if (self.app.playingvideo){

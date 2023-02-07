@@ -171,6 +171,62 @@
   display: block;
   font-size: 1.75em;
 }
+#add-collection form.collections-holder .posts-list {
+  padding: 0 1em 0 0.5em;
+  overflow: hidden;
+  overflow-y: overlay;
+  max-height: 430px;
+}
+#add-collection form.collections-holder .metapanel,
+#add-collection form.collections-holder .iconWrapper,
+#add-collection form.collections-holder .authorCell,
+#add-collection form.collections-holder .formeta:before,
+#add-collection form.collections-holder .editedLabel,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .tags,
+#add-collection form.collections-holder .sharepanel > div.right,
+#add-collection form.collections-holder .sharesocial,
+#add-collection form.collections-holder .shareinlenta.rendered .commentsWrapper #comments .post,
+#add-collection form.collections-holder .starsWrapper,
+#add-collection form.collections-holder .sharepanel .itemwr .starswr,
+#add-collection form.collections-holder .forstars .count .countusers,
+#add-collection form.collections-holder #comments .list,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .cntscontent .panel:before,
+#add-collection form.collections-holder .share_common .statswrapperExtended,
+#add-collection form.collections-holder .shareinlenta.rendered .commentsWrapper .showall,
+#add-collection form.collections-holder .share_common .images.manyImagesView .imagesContainer .imagesWrapper:not(:first-child) {
+  display: none;
+}
+#add-collection form.collections-holder .formeta,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .formeta,
+#add-collection form.collections-holder .metawrapper,
+#add-collection form.collections-holder .unselectablemobile,
+#add-collection form.collections-holder .postcontent,
+#add-collection form.collections-holder .share .sharecaption,
+#add-collection form.collections-holder .share .images,
+#add-collection form.collections-holder .cntscontent,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .cntscontent .panel,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .formeta .metawrapper,
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .post {
+  margin: 0;
+  padding: 0;
+}
+#add-collection form.collections-holder .forstars .itemwr,
+#add-collection form.collections-holder .conutdetails {
+  display: block;
+}
+#add-collection form.collections-holder .shareinlenta.rendered .sharecnt .post {
+  position: relative;
+  padding: 0 0 0 72px;
+}
+#add-collection form.collections-holder .share_common .images .imagesWrapper,
+#add-collection form.collections-holder .video-js.vjs-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  height: 64px !important;
+  width: 64px !important;
+}
 #add-collection[style$="step:3;"] .navigation .selected {
   display: inline-block;
 }
@@ -197,4 +253,15 @@
 }
 #add-collection .navigation .selected .counter {
   color: #000;
+}
+#add-collection .scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+#add-collection .scrollable::-webkit-scrollbar-track {
+  background: #fff;
+}
+#add-collection .scrollable::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 3px solid #d9d9d9;
 }

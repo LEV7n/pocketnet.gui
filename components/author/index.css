@@ -5,6 +5,9 @@
   /*Author collections*/
   /*Author following list*/
 }
+#author .usericon {
+  box-shadow: none;
+}
 #author .rightchatspacer {
   height: 100%;
 }
@@ -13,7 +16,7 @@
   text-align: center;
 }
 #author .authorlentawrapper {
-  /*margin-top : 2.2 * @rhythm;*/
+  margin-top: 1.1em;
 }
 #author.curation .startchat {
   padding-left: 0.5em;
@@ -60,7 +63,7 @@
   box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.08);
   background: rgb(var(--background-total-theme));
   margin-top: 1.1em;
-  padding: 0.8em 1.1em;
+  padding: 0.1em 1.1em;
 }
 #author .newsharewrapper:empty {
   display: none;
@@ -90,11 +93,22 @@
   background: rgb(var(--background-total-theme));
   border: 1px solid #E3E4EB;
   /*CHANGE TO THEME COLOR*/
-  border-radius: 12px 12px 0 0;
-  border-width: 1px 1px 0;
-  padding: 0.25em 0.5em;
+  border-radius: 12px;
+  padding: 0.25em 0.5em 0;
   margin-top: 1.1em;
   filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.08));
+  /*+ .authorlentawrapper{ RMW
+				.share:first-child,
+				.loader{
+					border: 1px solid #E3E4EB; !*CHANGE TO THEME COLOR*!
+					border-radius: 0 0 12px 12px;
+					border-width: 0 1px 1px;
+				}
+
+				.share{
+					border: 1px solid #E3E4EB; !*CHANGE TO THEME COLOR*!
+				}
+			}*/
 }
 #author .authorlentawrappermain .authorsearchwrapper .tabs {
   border-bottom: 1px solid #F3F3F2;
@@ -103,9 +117,8 @@
   align-items: center;
   font-size: 1.1em;
   list-style: none;
-  margin: -0.25em calc(-1 * 0.5em + 1px);
-  margin-bottom: 0;
-  padding: 0 0.5em;
+  margin: -0.25em 0.5em 0;
+  padding: 0;
 }
 #author .authorlentawrappermain .authorsearchwrapper .tabs li {
   position: relative;
@@ -137,23 +150,13 @@
   display: block;
   padding: 1em 1.1em;
 }
+#author .authorlentawrappermain .authorsearchwrapper .tabs li a i.fa {
+  margin: 0 0.5em 0 0;
+}
 #author .authorlentawrappermain .authorsearchwrapper .authorsearch {
   display: none;
-  border-bottom: 1px solid #F3F3F2;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
   margin: 0 -0.5em -0.25em -0.5em;
   padding: 0.25em 0.5em;
-}
-#author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .share:first-child,
-#author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .loader {
-  border: 1px solid #E3E4EB;
-  /*CHANGE TO THEME COLOR*/
-  border-radius: 0 0 12px 12px;
-  border-width: 0 1px 1px;
-}
-#author .authorlentawrappermain .authorsearchwrapper + .authorlentawrapper .share {
-  border: 1px solid #E3E4EB;
-  /*CHANGE TO THEME COLOR*/
 }
 #author .authorlentawrappermain .authorsearchwrapper .search .searchPanel {
   background: transparent;
@@ -485,10 +488,16 @@
   font-weight: normal;
 }
 #author .authorinfo .stat {
+  background: #F3F3F2;
+  /*CHANGE TO THEME COLOR*/
+  border: 1px solid #E2E2E2;
+  /*CHANGE TO THEME COLOR*/
+  border-radius: 12px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: 0 0 1.5em;
+  margin: 0 1.5em 1.5em;
+  padding: 1em;
   width: 100%;
 }
 #author .authorinfo .stat i[class^="fa"] {
@@ -1212,4 +1221,10 @@ html.mobileview #author .authorlentawrappermain .authorsearchwrapper .search .se
   #author .fxd {
     position: fixed;
   }
+}
+.wnd.edit-profile #test {
+  background: transparent;
+}
+.wnd.showall .wndinner {
+  max-width: 600px;
 }

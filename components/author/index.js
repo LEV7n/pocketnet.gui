@@ -658,7 +658,7 @@ var author = (function(){
 				self.nav.api.load({
 
 					open : true,
-					uid : _el.data('list'),
+					eid : _el.data('list'),
 					id : 'userslist',
 					el : _el,
 					animation : false,
@@ -695,6 +695,23 @@ var author = (function(){
 						animation : false,
 
 					}, function(p){
+						
+						_el.find('.btn-edit-profile').on('click', function(e){
+							e.preventDefault();
+							
+							self.nav.api.go({
+								open: !0,
+								href: 'test',
+								inWnd: !0,
+								wnd: {
+									class: 'edit-profile',
+									header: `${ self.app.localization.e('e13186') }</span>`,
+								},
+								essenseData: {
+								
+								}
+							})
+						})
 
 						p.el.find('.postcnt').on('click', function(){
 
@@ -804,10 +821,10 @@ var author = (function(){
 				}, function(p){
 					let
 						blocked = deep(author, 'data.blocking') || [],
-						list = _.map(deep(author, 'data.subscribes') || [], function(a){
-							return a.adddress
-						}).filter(function(a){
-							return _.indexOf(blocked, a) === -1
+						list = _.map(deep(author, 'data.subscribes') || [], function (a) {
+							return a.adddress;
+						}).filter(function (a) {
+							return _.indexOf(blocked, a) === -1;
 						}),
 						following = (() => {
 							const result = [].concat(list);
@@ -829,8 +846,9 @@ var author = (function(){
 								href: 'userslist',
 								inWnd: !0,
 								wnd: {
-									class: 'search',
-									header: `${ self.app.localization.e('following2') }<span class="counter">${ deep(author, 'data.subscribes_count') || 0 }</span>`
+									class: 'showall',
+									header: `${ self.app.localization.e('following2') }<span class="counter">${ deep(author, 'data.subscribes_count') || 0 }</span>`,
+									buttons: {  }
 								},
 								essenseData: {
 									addresses : list,
@@ -861,10 +879,10 @@ var author = (function(){
 				}, function(p){
 					let
 						blocked = deep(author, 'data.blocking') || [],
-						list = _.map(deep(author, 'data.subscribers') || [], function(a){
-							return a.adddress
-						}).filter(function(a){
-							return _.indexOf(blocked, a) === -1
+						list = _.map(deep(author, 'data.subscribers') || [], function (b) {
+							return b;
+						}).filter(function (b) {
+							return _.indexOf(blocked, b) === -1;
 						}),
 						followers = (() => {
 							const result = [].concat(list);
@@ -875,7 +893,7 @@ var author = (function(){
 							return result;
 						})();
 					
-					renders.userslist(_el.find('.list'), followers, '', '', function(e, p){
+					renders.userslist(_el.find('.list'), followers, '', '', function(e, p) {
 						if (report) report.module = p;
 						
 						_el.find('.btn-show-followers').on('click', function(e){
@@ -886,8 +904,9 @@ var author = (function(){
 								href: 'userslist',
 								inWnd: !0,
 								wnd: {
-									class: 'search',
-									header: `${ self.app.localization.e('followers2') }<span class="counter">${ deep(author, 'data.subscribers_count') || 0 }</span>`
+									class: 'showall',
+									header: `${ self.app.localization.e('followers2') }<span class="counter">${ deep(author, 'data.subscribers_count') || 0 }</span>`,
+									buttons: {  }
 								},
 								essenseData: {
 									addresses : list,
@@ -1038,7 +1057,6 @@ var author = (function(){
 						if(!self.app.curation()){
 							if(self.user.isItMe(author.address) && !params.search) renders.share(_el)
 
-						
 							self.nav.api.load({
 		
 								open : true,
@@ -1079,7 +1097,7 @@ var author = (function(){
 									acsearch.destroy()
 								}
 								
-
+								var href = '?report=shares';
 
 								acsearch = new search(p.el.find('.authorsearch'), {
 									placeholder : self.app.localization.e('e13140') + ' ' + author.data.name,
@@ -1105,7 +1123,7 @@ var author = (function(){
 									events : {
 										search : function(value, clbk, e, helpers){
 			
-											var href = '?report=shares&ssa=' + value.replace("#", 'tag:')
+											href += '&ssa=' + value.replace("#", 'tag:')
 											clearsearch(true)
 			
 											var p = {
@@ -1129,6 +1147,44 @@ var author = (function(){
 									}
 									
 								})
+								
+								var tabs = p.el.find('.tabs').each(function () {
+									var items = $(this).find('li');
+									
+									items.each(function (i, item) {
+										$(item).on('click', function (e) {
+											e.preventDefault();
+											
+											items.removeClass('active').eq(i).addClass('active');
+											
+											href += `&type=${ item.dataset.type }`
+											
+											self.nav.api.go({
+												href : href,
+												history : true,
+												open : true,
+												handler : true
+											});
+											
+											params.contentTypes = item.dataset.type;
+											
+											if (item.dataset.type === 'video') {
+												params.video = 1 && !isMobile();
+												params.videomobile = 1 && isMobile();
+											} else {
+												delete params.video;
+												delete params.videomobile;
+											}
+											
+											/*Reload component*/
+											load();
+										});
+										
+										if (params.contentTypes === item.dataset.type) {
+											items.removeClass('active').eq(i).addClass('active');
+										}
+									});
+								});
 
 
 								if (parameters().ssa){
@@ -1187,26 +1243,33 @@ var author = (function(){
 
 				}
 				else{
-
-					if (parameters().ssa){
+					if (parameters().ssa) {
 						params.search = true
 						params.searchValue = parameters().ssa
+						
 						params.loader = function(clbk){
-
+							
 							var _clbk = function(data){
 								var shares = self.app.platform.sdk.node.shares.transform(data)
-
+								
 								if (clbk)
 									clbk(shares, null, {
 										count : 10
 									})
 							}
-
+							
 							
 							makenext('posts', deep(result, 'data.length') || 0, 10, function(data){
 								_clbk(data)
 							})
 							
+						}
+					} else if (parameters().type) {
+						params.contentTypes = parameters().type;
+						
+						if (params.contentTypes === 'video') {
+							params.video = 1 && !isMobile();
+							params.videomobile = 1 && isMobile();
 						}
 					}
 

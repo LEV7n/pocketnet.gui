@@ -6,7 +6,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-wallet"></i>
-        <a class="link" href="userpage?id=wallet"><%= e('rwallet') %></a>
+        <a class="link" href="userpage?id=wallet"><%- e('rwallet') %></a>
       </div>
       <div class="value balance"><span class="number">0</span> PKOIN</div>
     </li>
@@ -15,7 +15,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-video"></i>
-        <a class="link" href="userpage?id=videoCabinet"><%= e('e14105') %></a>
+        <a class="link" href="userpage?id=videoCabinet"><%- e('e14105') %></a>
       </div>
       <div class="value">-</div>
     </li>
@@ -24,7 +24,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-layer-group"></i>
-        <a class="link" href="collections?author=<%= app.platform.api.authorlink(author.address.toString('hex')) %>"><%= e('Collections') %></a>
+        <a class="link" href="collections?author=<%- app.platform.api.authorlink(author.address.toString('hex')) %>"><%- e('Collections') %></a>
       </div>
       <div class="value">-</div>
     </li>
@@ -33,7 +33,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-user-lock"></i>
-        <a class="link" href="#"><%= e('blockedusers') %></a>
+        <a class="link" href="#"><%- e('blockedusers') %></a>
       </div>
       <div class="value">-</div>
     </li>
@@ -42,7 +42,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-dollar-sign"></i>
-        <a class="link" href="#"><%= e('Paid subscriptions') %></a>
+        <a class="link" href="#"><%- e('Paid subscriptions') %></a>
       </div>
     </li>
 
@@ -50,7 +50,7 @@
     <li class="item table">
       <div class="icon">
         <i class="fa fa-cog"></i>
-        <a class="link" href="userpage?id=usersettings"><%= e('rsettings') %></a>
+        <a class="link" href="userpage?id=usersettings"><%- e('rsettings') %></a>
       </div>
     </li>
   </ul>
@@ -60,7 +60,7 @@
 <!--Personal info-->
 <div class="authorabout pane">
   <!--Heading-->
-  <strong class="item heading"><%= e(!isItMe ? 'uuserinfo' : 'aboutTitterTable33') %></strong>
+  <strong class="item heading"><%- e(!isItMe ? 'uuserinfo' : 'aboutTitterTable33') %></strong>
 
   <!--Description-->
   <% if(deep(author, 'data.about')) {
@@ -77,8 +77,8 @@
       <li class="item table bordered">
         <div class="label">
           <i class="fas fa-link"></i>
-          <a elementsid="<%= deep(author, 'data.site')%>" href="<%= deep(author, 'data.site') %>">
-            <%= filterXSS(deep(author, 'data.site').replace(/.+:\/\//, '')) %>
+          <a elementsid="<%- deep(author, 'data.site')%>" href="<%- deep(author, 'data.site') %>">
+            <%- filterXSS(deep(author, 'data.site').replace(/.+:\/\//, '')) %>
           </a>
         </div>
       </li>
@@ -107,17 +107,17 @@
                 })(),
                 name = type.charAt(0).toUpperCase() + type.slice(1);
           %>
-          <!--<%= wallet.currency %>-->
-          <dt><%= name %></dt>
+          <!--<%- wallet.currency %>-->
+          <dt><%- name %></dt>
           <dd>
             <div class="icon">
-              <i class="<%= type %>"></i>
+              <i class="<%- type %>"></i>
             </div>
-            <span class="address" title="<%= wallet.address %>">
-              <%= wallet.address %>
+            <span class="address" title="<%- wallet.address %>">
+              <%- wallet.address %>
             </span>
             <div elementsid="copyaddress" class="copyaddress">
-              <span class="address"><%= wallet.address %></span>
+              <span class="address"><%- wallet.address %></span>
               <i class="fa fa-copy"></i>
             </div>
           </dd>
@@ -138,14 +138,14 @@
       <li class="item table">
         <div class="icon">
           <i class="far fa-calendar"></i>
-          <span class="label"><%= e('joined') %></span>
+          <span class="label"><%- e('joined') %></span>
         </div>
-        <div><%= _d.yyyymmdd('.') %></div>
+        <div><%- _d.yyyymmdd('.') %></div>
       </li>
       <% } %>
     </ul>
   </div>
 
   <!--Show more/less-->
-  <a class="link collapsible" data-collapse="author-data"><%= e('showmore') %></a>
+  <a class="link collapsible" data-collapse="author-data"><%- e('showmore') %></a>
 </div>
