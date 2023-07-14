@@ -1378,8 +1378,8 @@ var userRoomStatus_component = Object(componentNormalizer["a" /* default */])(
       immediate: true,
       deep: true,
       handler: function () {
-        var _this$m_chat3;
-        this.membership = (_this$m_chat3 = this.m_chat) === null || _this$m_chat3 === void 0 ? void 0 : _this$m_chat3.currentState.members[this.m_chat.myUserId].membership;
+        var _this$m_chat3, _this$m_chat3$current, _this$m_chat3$current2;
+        this.membership = (_this$m_chat3 = this.m_chat) === null || _this$m_chat3 === void 0 ? void 0 : (_this$m_chat3$current = _this$m_chat3.currentState) === null || _this$m_chat3$current === void 0 ? void 0 : (_this$m_chat3$current2 = _this$m_chat3$current.members[this.m_chat.myUserId]) === null || _this$m_chat3$current2 === void 0 ? void 0 : _this$m_chat3$current2.membership;
       }
     }
   },
